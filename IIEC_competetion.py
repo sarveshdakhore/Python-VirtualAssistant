@@ -348,9 +348,9 @@ while True:
               print("FOR EXIT : 'exit()' \n FOR OPENING FILE : 'open filename.extention' \n FOR OPENING FOLDER :  'open foldername' \n FOR MAKING FOLDER: make foldername \n FOR CREATING FILE :  create  \n FOR DELETING ANY FILE/FOLDER : 'delete filename/foldername' \n \n")
 
               if platform.system()=="Windows":
-                    ls="ls"
+                    ls="dir"
               else:
-                    ls = "dir"
+                    ls = "ls"
               os.system(ls)
 
 
