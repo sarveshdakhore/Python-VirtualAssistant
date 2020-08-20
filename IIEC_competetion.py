@@ -2,27 +2,37 @@ import os
 import platform
 
 try:
+    import time
+except ModuleNotFoundError:
+    os.system("pip install time")
+    import time
+
+try:
     import pyttsx3
 except ModuleNotFoundError:
     os.system("pip install pyttsx3")
     import pyttsx3
 
-print("WHAT DOES THIS PROGRAM DO: \n \n 1)  YOU CAN OPEN APPLICATIONS : TO add more application just make [] seperated via couma and first add orignal app name in string and than the what would you will type to open the app in another string all strings should seperated by couma")
-print("\n YOU CAN GO TO FINDER by typing 'go to finder' : there are lots of thigs to do")
-print("YOU CAN TURN ON OR OFF SPEAKING OF YOUR DEVICE BY TYPING NEGATIVE WORD LIKE 'not,never,etc'  and on by typing 'now speak, do speak'")
+line = " ___________________________________________________________________ "
+
+print("\n \n \n "+line+" \n \n \n")
+
+print("WHAT DOES THIS PROGRAM DO: \n \n 1)  YOU CAN OPEN APPLICATIONS : TO add more application just make [] seperated via couma and first \n add orignal app name in string and than the what would you will type to open the app in \n another string all strings should seperated by couma. \n")
+print("\t\t\t\t-----------------------------------")
+print("\n YOU CAN GO TO FINDER by typing 'go to finder' : there are lots of thigs to do \n")
+print("\t\t\t\t-----------------------------------")
+print("\n YOU CAN TURN ON OR OFF SPEAKING OF YOUR DEVICE BY TYPING NEGATIVE WORD LIKE 'not,never,etc'  and on by typing 'now speak, do speak' \n \n ")
 
 
 
 
-
-
-
+print(line+" \n")
 print("This specially made for mac users  \n You can open all apps which mac have. \n and programe is written in mac")
-print("\n This Programme is optimise for all types of os (Mac ,Windows) ")
-#pyttsx3.speak("this programme specially made for mac users . and .programme is written in mac .And This Programme is optimise for all types of Operating System .(Mac ,Windows). ")
+print("\n "+line+" \n \n")
 pyttsx3.speak("User please Enter Your Name ")
 name_user=input("Enter Your Name :- ")
-pyttsx3.speak("Hello "+name_user +"! I am Darwin your virtual assistant How can I help you ")
+print("\n \n"+line+" \n")
+
 
 
 speak_mode = 1
@@ -30,7 +40,7 @@ speak_mode = 1
 #about program
 
 negative_comment_speach = "It's a negative comment so i can't proceed."
-exit_speach = "you exited successfully"
+exit_speach = "Good bye! "+name_user+"! hope we will meet soon"
 negative_comment = ["dont",'not to','not',"don't",'never do this', 'never do' , "never" , "turn off"]
 positive_comment= ["do","now","start"]
 
@@ -39,13 +49,13 @@ speak_turn_off= "speak voice"
 speak_turn_off= speak_turn_off.split()
 
 
-
-
 app_name=""
 
 
 # FOR WINDOWS
-
+print("\t\t\t\t what can I help you with ?")
+print("\t\t\t\t-------------------------------- \n")
+pyttsx3.speak("Hello "+name_user +"! I am Darwin your virtual assistant! What can I help you with!")
 
 if platform.system() == "Windows":
     print("you are operating this program on windows.....")
@@ -53,7 +63,7 @@ if platform.system() == "Windows":
     
     pyttsx3.speak("This program is mainly made for Mac (OS)! but optimized also for windows! There are some chances that some function may not work in windows")
 
-    x = [[""],["control","setting","settings","control","love to change things"],["Anaconda Navigator", "anaconda","Anaconda-Navigator","conda","Navigator"],["MsEdge", "Microsoft Edge","edge","edge browser","micrisoft browser"],["chrome","Google chrome","browser","net surfing in google "],["arcroRd32","acrobat","adobe acrobat"],["creative cloud","creative cloud","adobe cloud",],["illustrartor","Adobe illustrartor","illustrator","illustator","design","designing"," adobe logo maker"],["photoshop","photo shop","Photoeditor","editing"],["Excel","Microsoft Excel","excel","microsoft excel","excel data entry",],["chrome","Google chrome","net surfing in google"],["onenote","Microsoft OneNote","office","mf office",],["powerpnt","Power Point","Presentation","ppt presentation",],["winword","document","word","writing pad"]]
+    x = [[""],["wmplayer","Windows Media Player","windows media player","windowsmediaplayer","wmp","video player"],["control","setting","settings","control","love to change things"],["Anaconda Navigator", "anaconda","Anaconda-Navigator","conda","Navigator"],["MsEdge", "Microsoft Edge","edge","edge browser","micrisoft browser"],["chrome","Google chrome","browser","net surfing in google "],["arcroRd32","acrobat","adobe acrobat"],["creative cloud","creative cloud","adobe cloud",],["illustrartor","Adobe illustrartor","illustrator","illustator","design","designing"," adobe logo maker"],["photoshop","photo shop","Photoeditor","editing"],["Excel","Microsoft Excel","excel","microsoft excel","excel data entry",],["chrome","Google chrome","net surfing in google"],["onenote","Microsoft OneNote","office","mf office",],["powerpnt","Power Point","powerpoint","power point","Presentation","ppt presentation",],["winword","document","word","writing pad"]]
 
 
    
@@ -63,7 +73,8 @@ if platform.system() == "Windows":
         print("\n \n")
         print("THE APPS THAT I CAN OPEN FOR YOU IF IT EXIST: \n")
         for i in range(1,len(x)):
-            print(x[i][1])
+            q=str(i)
+            print(q+") "+x[i][1])
         print("\n")
 
     
@@ -71,14 +82,14 @@ if platform.system() == "Windows":
         os.system('start ' +app_name)
 
     def file_creater():
-        os.system("touch "+name+ext)
+        os.system("Type "+name+ext)
         os.system("dir")
 
-    file_types=[[".txt",'Text File','textfile','text file','Text edit',"1"],[".pptx","Power Point Presentation","ppt","powerpoint","power point" ,"presentation"],[".docx","Microsoft Word","ms word","word","msword","microsoft word"],[".xlsx","Microsoft Excel","excel"]]
+    file_types=[[".txt",'Text File','textfile','text file','Text edit'],[".pptx","Power Point Presentation","ppt","powerpoint","power point" ,"presentation"],[".docx","Microsoft Word","ms word","word","msword","microsoft word"],[".xlsx","Microsoft Excel","excel"]]
 
     def file_opener():
         df='"'+name+ext+'"'
-        os.system("open "+df)
+        os.system(df)
     def uni_f_op():
         z_1=inp_1[1]
         for i in inp_1[2:]:
@@ -86,8 +97,11 @@ if platform.system() == "Windows":
         os.system("open "+z_1)
 
     def folder_creater():
-        folder_n='"'+inp_1[1]+'"'
-        os.system("mkdir "+folder_n)
+        folder_n=inp_1[1]
+        for i in inp_1[2:]:
+              folder_n+=" "+i
+        folder_n=folder_n+'"'
+        os.system('mkdir "'+folder_n)
 
     def rename_file():
         z_1=inp_1[1]
@@ -122,7 +136,7 @@ if platform.system() == "Windows":
         if z_1 in os.listdir():
 
              print(z_1)
-             os.system('del f "'+z_1+'"')
+             os.system('rmdir "'+z_1+'"')
 
 
              print(z_1+" file deleted successfully.")
@@ -144,7 +158,7 @@ if platform.system() == "Windows":
 
 
 
-
+# MAC START HERE
 if platform.system() == "Darwin":
     print("you are operating this program on Mac.....")
 
@@ -155,7 +169,7 @@ if platform.system() == "Darwin":
 
 #for mac
 
-    x = [[""],["Photos","photos,photo"],["Preview","preview"],["Music","music","musics"],["Podcasts","podcasts"],["iMovie","imovie","video editing"],["KeyNote","keynote","presentation"],["Stocks","stocks","stock"],["Xcode","xcode"],["Notes","notes","note","notepad"],["FaceTime","facetime","face time"],["FindMy","find my","findmy"],["Photo Booth","photo booth","photobooth","photos booth","photosbooth"],["Mails","mails","emails"],["Contacts","contacts","contact"],["Whatsapp","whatsapp"],["Calender","calender","calanders"],["Reminders","reminders","reminder"],["Numbers","spreadsheet","numbers"],["Messages","messages","message"],["Maps","maps","navigate"],["TV","tv","apple tv","appletv"],["GarageBand","garageband","garage band","music mixer","music editor"],["Voice Memos","voice memos","sound secorder","recorder"],["Anac onda-Navigator", "anaconda","jupiter","Navigator","spyder"], ["App Store", "app store","applications","store","apps"], ["atom", "code in atom","coding in atom","lets code in atom","atom ide"],["Google chrome","chrome","net surfing in google","google","surf google"],["safari","net surfing","browser","default browser","sarfari browser"]]
+    x = [[""],["Photos","photos,photo"],["Preview","preview"],["Music","music","musics"],["Podcasts","podcasts"],["iMovie","imovie","video editing"],["KeyNote","keynote","presentation"],["Stocks","stocks","stock"],["Xcode","xcode"],["Notes","notes","note","notepad"],["FaceTime","facetime","face time"],["FindMy","where is iphone","find iphone","find my","findmy"],["Photo Booth","photo booth","photobooth","photos booth","photosbooth"],["Mails","mails","emails"],["Contacts","contacts","contact"],["Whatsapp","whatsapp"],["Calender","calender","calanders"],["Reminders","reminders","reminder"],["Numbers","spreadsheet","numbers"],["Messages","messages","message"],["Maps","maps","navigate"],["TV","tv","apple tv","appletv"],["GarageBand","garageband","garage band","music mixer","music editor"],["Voice Memos","voice memos","sound secorder","recorder"],["Anac onda-Navigator", "anaconda","jupiter","Navigator","spyder"], ["App Store", "app store","applications","store","apps"], ["atom", "code in atom","coding in atom","lets code in atom","atom ide"],["Google chrome","chrome","net surfing in google","google","surf google"],["safari","net surfing","browser","default browser","sarfari browser"]]
     pyttsx3.speak("you are operating this program on Macintosh.....")
 
 
@@ -168,14 +182,15 @@ if platform.system() == "Darwin":
         os.system("touch "+name+ext)
         os.system("ls")
 
-    file_types=[[".txt",'Text File','textfile','text file','Text edit',"1"],[".txt",'Text File','textfile','text file','Text edit',"1"],[".pages","pages"],[".numbers","Spread Sheet","spread sheet","shhet","number"],[".pptx","Power Point Presentation","ppt","powerpoint","power point" ,"presentation"],[".docx","Microsoft Word","ms word","word","msword","microsoft word"],[".xlsx","Microsoft Excel","excel"]]
+    file_types=[[".txt",'Text File','textfile','text file','Text edit'],[".pages","pages"],[".numbers","Spread Sheet","spread sheet","shhet","number"],[".pptx","Power Point Presentation","ppt","powerpoint","power point" ,"presentation"],[".docx","Microsoft Word","ms word","word","msword","microsoft word"],[".xlsx","Microsoft Excel","excel"]]
     
         
     def show_apps():
         print("\n \n")
         print("THE APPS THAT I CAN OPEN FOR YOU IF IT EXIST: \n")
         for i in range(1,len(x)):
-            print(x[i][0])
+            q = str(i)
+            print(q+") "+x[i][0])
         print("\n")
 
     def file_opener():
@@ -185,19 +200,21 @@ if platform.system() == "Darwin":
         z_1=inp_1[1]
         for i in inp_1[2:]:
               z_1+=" "+i
-        os.system("open "+z_1)
+        z_1=z_1+'"'
+        os.system('open "'+z_1)
 
     def folder_creater():
-        folder_n='"'+inp_1[1]+'"'
-        os.system("mkdir "+folder_n)
+        folder_n=inp_1[1]
+        for i in inp_1[2:]:
+              folder_n+=" "+i
+        folder_n=folder_n+'"'
+        
+        os.system('mkdir "'+folder_n)
 
     def rename_file():
         z_1=inp_1[1]
         for i in inp_1[2:]:
               z_1+=" "+i
-
-
-
 
         if z_1 in os.listdir():
             if speak_mode==1:
@@ -248,29 +265,19 @@ else:
     print("THIS PROGRAM IS NOT MADE FOR YOUR OPERATING SYSTEM")
 
 
-
-
-
-
-print(len(x))
-
-
-show_apps()
-
-
-
-
 while True:
-
+    print("\n "+line+" \n")
     to_control=1
     to_control_b=1
 
-
+    show_apps()
+    print(line+" \n \n")
     requirements = input("enter your choice:- ")
+    req_2=requirements
     requirements=requirements.lower()
     req_1 = requirements
 
-    if requirements=="exit()":
+    if "exit" in requirements or "exit()" in requirements or "good bye" in requirements or "bye" in requirements:
 
         print(exit_speach)
         if speak_mode==1:
@@ -341,28 +348,34 @@ while True:
     if "show" in requirements and "app" in requirements:
         show_apps()
     elif "go" in req_1 and "finder" in req_1:
-        print("you are now in finder")
+        print("\n \n"+line+"\n \n")
+        print("You are now in finder \n")
+        
         if speak_mode==1:
             pyttsx3.speak("welcome . , you are now in finder")
         while True :
-              print("FOR EXIT : 'exit()' \n FOR OPENING FILE : 'open filename.extention' \n FOR OPENING FOLDER :  'open foldername' \n FOR MAKING FOLDER: make foldername \n FOR CREATING FILE :  create  \n FOR DELETING ANY FILE/FOLDER : 'delete filename/foldername' \n \n")
-
+              print("\n \n"+line+"\n \n")
               if platform.system()=="Windows":
-                    ls="dir"
+                    ls='"dir"'
+                    print("hello")
               else:
                     ls = "ls"
-              os.system(ls)
-
+              os.system("DIR")
+              time.sleep(0.1)
+              print("\n "+line+"\n \n ")
+              print(" PLEASE FOLLOW THE INSTRUCTION GIVEN BELOW :-    \n \n FOR EXIT : 'exit()' \n FOR OPENING FILE : 'open filename.extention' \n FOR RENAMING FILE/FOLDER :  'rename foldername or file name.extention' \n FOR OPENING FOLDER :  'open foldername' \n FOR MAKING FOLDER: make foldername \n FOR CREATING FILE :  create  \n FOR DELETING ANY FILE/FOLDER : 'delete filename/foldername' \n \n")
+              print(line+" \n \n")
+             
 
               inp_1 = input("what you want to do : ")
 
-
+              
 
               if inp_1=="exit()":
 
-                  print(exit_speach)
+                  print("you exited successfully.")
                   if speak_mode==1:
-                      pyttsx3.speak(exit_speach)
+                      pyttsx3.speak("you exited successfully.")
                   break
 
 
@@ -370,10 +383,11 @@ while True:
               inp_1 = inp_1.split()
 
 
-
+              if inp_1==[]:
+                  pass
 
                   #OPEN FILE/FOLDR
-              if "open" in inp_1[0]:
+              elif "open" in inp_1[0]:
 
                   uni_f_op()
 
@@ -401,72 +415,102 @@ while True:
 
 
               elif "show" in inp_1 and "file" in inp_1:
-                   os.system("ls")
+                   os.system(ls)
 
                 #create files
               elif "create" in inp_1:
-
-                    print("""    what type thing you want to create
-
-
+                    print("\n "+line)
+                    print("""  \n \n  what type thing you want to create
 
                           """)
 
 
                     while True:
                         for i in range(0,len(file_types)):
-                            print((i+1),end=")  "+file_types[i][1])
+                            print((i+1),end=")  "+file_types[i][1]+"\n")
+                        print("\n \n "+line)
                         print('\n \n')
                         print("FOR GOING BACK PLEASE TYPE 'back()'")
-                        Filenuser=input(""" Please enter which type of file you want if your choice not
-    listed plss add extention with name to crate it
-    or you can continue without extention: """)
+                        print(""" Please enter which type of file you want if your choice not \n listed plss add extention with name to crate it \n or you can continue without extention. """)
+                        print("\n "+line)
+                        Filenuser = input("Your choice please :- ")
+                        
                         if "back()" in Filenuser.lower():
                             break
-                        for u in range(0,len(file_types)):
-                            if Filenuser.lower() in file_types[u] :
-                                ext=file_types[u][0]
-                                name=input("Please enter file name:- ")
-                                file_creater()
-                                print("file crated successfully.")
-                                if speak_mode==1:
-                                    pyttsx3.speak("file crated successfully.")
+                        
+                        
+                        
+                        
+                        #For CREATING files
+                        
+                        if Filenuser.isnumeric():
+                                Filenuser=int(Filenuser)
+                                u = Filenuser - 1
+                        if u in range(0,len(file_types)):
+                            
+                            ext=file_types[u][0]
+                            name=input("Please enter file name:- ")
+                            file_creater()
+                            print("file crated successfully.")
+                            if speak_mode==1:
+                                pyttsx3.speak("file crated successfully.")
+                                
+                                
                                 open_file=input("want to open crated file (y/n) : ")
-
-
                                 if open_file=="y":
                                     file_opener()
                                 break
-
-
-
-
+                                    
+                                    
+                        
                         else:
-                            name, ext = os.path.splitext(Filenuser)
-                            if name=="":
-                                print("no file name recorded... ")
-                            elif ext=="":
-                                while True:
-                                    ext=input("extentiom: ")
-                                    if "." in ext:
-                                        break
-                                    if ext=="back()":
-                                        break
-                                    else:
-                                        print("incorrect extention")
-                                        print("FOR GOING BACK PLEASE TYPE 'back()'")
-                            elif name!="" and ext!="" and "." in ext:
-                                file_creater()
-                                print("file crated successfully.")
-                                if speak_mode==1:
-                                    pyttsx3.speak(print("file crated successfully."))
+                           
+                            for u in range(0,len(file_types)):
+                            
+                                if Filenuser.lower() in file_types[u] :
+                                    ext=file_types[u][0]
+                                    name=input("Please enter file name:- ")
+                                    file_creater()
+                                    print("file crated successfully.")
+                                    if speak_mode==1:
+                                        pyttsx3.speak("file crated successfully.")
+                                    
+                                    
+                                    open_file=input("want to open crated file (y/n) : ")
+                                    if open_file=="y":
+                                        file_opener()
+                                    break
+    
+    
+    
+    
                             else:
-                                print("Some Eroor Occurred Pls try one more")
-                                if speak_mode==1:
-                                    pyttsx3.speak(print("file crated successfully."))
-
-
-
+                                name, ext = os.path.splitext(Filenuser)
+                                if name=="":
+                                    print("no file name recorded... ")
+                                elif ext=="":
+                                    while True:
+                                        ext=input("extentiom: ")
+                                        if "." in ext:
+                                            break
+                                        if ext=="back()":
+                                            break
+                                        else:
+                                            
+                                            print("Incorrect extention")
+                                            print("FOR GOING BACK PLEASE TYPE 'back()'")
+                                elif name!="" and ext!="" and "." in ext:
+                                    file_creater()
+                                    print("file crated successfully.")
+                                    if speak_mode==1:
+                                        pyttsx3.speak(print("file crated successfully."))
+                                else:
+                                    print("Some Eroor Occurred Pls try one more")
+                                    if speak_mode==1:
+                                        pyttsx3.speak(print("file crated successfully."))
+    
+    
+    
 
 
 
@@ -487,21 +531,30 @@ while True:
 
 
             else:
-
-                for r in range(0,len(x)):
-                    for d in x[r]:
-                        if d in req_1:
-                            row=r
-
-                            break
-
-                        else:
-                            pass
+                
+                
+                if req_2.isnumeric():
+                    req_2=int(req_2)
+                   
+                if req_2 in range(0,len(x)):
+                    row=req_2
+                    
+                    
+                else:
+                    for r in range(0,len(x)):
+                        for d in x[r]:
+                            if d in req_1:
+                                row=r
+    
+                                break
+    
+                            else:
+                                pass
 
                 if row ==0:
-                    print("I cant understand")
+                    print("Unable to understand")
                     if speak_mode==1:
-                        pyttsx3.speak("I can't understand")
+                        pyttsx3.speak("Unable to understand")
                 else:
                     app_name=x[row][0]
                     open_app()
