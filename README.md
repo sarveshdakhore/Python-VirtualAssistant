@@ -8,7 +8,8 @@ where you will save file there will be directory working means you can do multip
 
 first download miniconda(https://docs.conda.io/en/latest/miniconda.html) or anaconda(https://www.anaconda.com/products/individual) and Python(https://www.python.org/downloads/) 
 
-if some errors occurs make sure you have installed all modules
+if some errors occurs make sure you have installed all modules. cmd lines given bellow of each module to install it
+  
 1) time  
     pip install time
       
