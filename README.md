@@ -12,7 +12,7 @@ if some errors occurs make sure you have installed all modules
 1) time  
     pip install time
       
-2)pyttsx3
+2)pyttsx3  
     pip install pyttsx3
       
 
