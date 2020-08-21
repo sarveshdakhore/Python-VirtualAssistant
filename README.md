@@ -1,6 +1,6 @@
 # IIEC-Python
 
-THIS PROGRAM is mainly FOR 💻 🖥  Mac OS
+THIS PROGRAM is mainly FOR  'Mac OS'.      🖥 💻 
 
 
 where you will save file there will be directory working means you can do multiples actions on the files present in the directory where your file is saved.
