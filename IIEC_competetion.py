@@ -518,10 +518,10 @@ while True:
                                     file_creater()
                                     print(" - file crated successfully.")
                                     if speak_mode==1:
-                                        pyttsx3.speak("file crated successfully.")
+                                        pyttsx3.speak("file created successfully.")
                                     
-                                    
-                                    open_file=input("want to open crated file (y/n) : ")
+                                    print("\n")
+                                    open_file=input("want to open created file (y/n) : ")
                                     if open_file=="y":
                                         file_opener()
                                     break
@@ -535,10 +535,18 @@ while True:
                                     elif ext=="":
                                         while True:
                                             ext=input("extentiom: ")
-                                            if "." in ext:
+                                            if "."==ext:
+                                                print(" - wrong input recorded")
+                                            elif "." in ext:
+                                                file_creater()
+                                                print(" - file created successfully.")
+                                                if speak_mode==1:
+                                                    pyttsx3.speak(print("file created successfully."))
+                                               
                                                 break
-                                            if ext=="back()":
+                                            if ext=='back()':
                                                 break
+                                             
                                             else:
                                                 
                                                 print(" - Incorrect extention \n")
@@ -554,6 +562,7 @@ while True:
                                         if speak_mode==1:
                                             pyttsx3.speak(print("Some Eroor Occurred Pls try onece more"))
                                         break
+                                    break
         
     
 
