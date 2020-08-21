@@ -15,7 +15,6 @@ except ModuleNotFoundError:
 
 
 
-
 line = " ___________________________________________________________________ "
 
 
@@ -314,6 +313,7 @@ while True:
     req_2=requirements
     requirements=requirements.lower()
     req_1 = requirements
+   
 
     if "exit" in requirements or "exit()" in requirements or "good bye" in requirements or "bye" in requirements:
 
@@ -380,8 +380,9 @@ while True:
                 break
 
 
-
-
+#------
+    
+        
             # file creater
 
     if "show" in requirements and "app" in requirements:
@@ -496,10 +497,10 @@ while True:
                                 print("\n "+line+" \n" )
                                 print(" - file crated successfully.")
                                 if speak_mode==1:
-                                    pyttsx3.speak("file crated successfully.")
+                                    pyttsx3.speak("file created successfully.")
                                     
                                 print("\n")
-                                open_file=input("want to open crated file (y/n) : ")
+                                open_file=input("want to open created file (y/n) : ")
                                 if open_file=="y":
                                     file_opener()
                                 break
@@ -528,7 +529,7 @@ while True:
     
     
 
-                                else:
+                            else:
                                     name, ext = os.path.splitext(Filenuser)
                                     if name=="":
                                         print(" - no file name recorded... ")
