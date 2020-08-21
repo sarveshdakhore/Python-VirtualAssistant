@@ -13,21 +13,26 @@ except ModuleNotFoundError:
     os.system("pip install pyttsx3")
     import pyttsx3
 
+
+
+
 line = " ___________________________________________________________________ "
+
+
 
 print("\n \n \n "+line+" \n \n \n")
 
 print("WHAT DOES THIS PROGRAM DO: \n \n 1)  YOU CAN OPEN APPLICATIONS : TO add more application just make [] seperated via couma and first \n add orignal app name in string and than the what would you will type to open the app in \n another string all strings should seperated by couma. \n")
 print("\t\t\t\t-----------------------------------")
-print("\n YOU CAN GO TO FINDER by typing 'go to finder' : there are lots of thigs to do \n")
+print("\n 2) YOU CAN GO TO FINDER by typing 'go to finder' : there are lots of thigs to do \n")
 print("\t\t\t\t-----------------------------------")
-print("\n YOU CAN TURN ON OR OFF SPEAKING OF YOUR DEVICE BY TYPING NEGATIVE WORD LIKE 'not,never,etc'  and on by typing 'now speak, do speak' \n \n ")
+print("\n 3) YOU CAN TURN ON OR OFF SPEAKING OF YOUR DEVICE BY TYPING NEGATIVE WORD LIKE 'not,never,etc'  and on by typing 'now speak, do speak' \n \n ")
 
 
 
 
 print(line+" \n")
-print("This specially made for mac users  \n You can open all apps which mac have. \n and programe is written in mac")
+print(" This specially made for mac users  \n You can open all apps which mac have. \n and programe is written in mac")
 print("\n "+line+" \n \n")
 pyttsx3.speak("User please Enter Your Name ")
 name_user=input("Enter Your Name :- ")
@@ -47,6 +52,11 @@ positive_comment= ["do","now","start"]
 
 speak_turn_off= "speak voice"
 speak_turn_off= speak_turn_off.split()
+
+def nif():
+    print("\n No input found")
+    if speak_mode==1:
+            pyttsx3.speak("No input found.")
 
 
 app_name=""
@@ -91,46 +101,61 @@ if platform.system() == "Windows":
         df='"'+name+ext+'"'
         os.system(df)
     def uni_f_op():
-        z_1=inp_1[1]
-        for i in inp_1[2:]:
-              z_1+=" "+i
-        os.system("open "+z_1)
+        if len(inp_1)!=1:
+            z_1=inp_1[1]
+            for i in inp_1[2:]:
+                  z_1+=" "+i
+            os.system("open "+z_1)
+        else:
+            nif()
 
     def folder_creater():
-        folder_n=inp_1[1]
-        for i in inp_1[2:]:
-              folder_n+=" "+i
-        folder_n=folder_n+'"'
-        os.system('mkdir "'+folder_n)
+        if len(inp_1)!=1:
+            
+            folder_n=inp_1[1]
+            for i in inp_1[2:]:
+                  folder_n+=" "+i
+            folder_n=folder_n+'"'
+            os.system('mkdir "'+folder_n)
+            print("folder made successfully")
+            if speak_mode==1:
+                pyttsx3.speak("folder made successfully")
+        else:
+            nif()
 
     def rename_file():
-        z_1=inp_1[1]
-        for i in inp_1[2:]:
-              z_1+=" "+i
+        if len(inp_1)!=1:
+            z_1=inp_1[1]
+            for i in inp_1[2:]:
+                z_1+=" "+i
 
-        if z_1 in os.listdir():
-            if speak_mode==1:
-                pyttsx3.speak("Enter your files new name: ")
-            new_f=input("Enter your files new name: ")
-            nnn =' "'+new_f+'"'
-
-
-            os.system('ren "'+z_1+'"'+nnn)
-
-            print("file renamed successfully.")
-            if speak_mode==1:
-                pyttsx3.speak("file renamed successfully.")
+            if z_1 in os.listdir():
+                if speak_mode==1:
+                    pyttsx3.speak("Enter your files new name: ")
+                new_f=input("Enter your files new name: ")
+                nnn =' "'+new_f+'"'
 
 
+                os.system('ren "'+z_1+'"'+nnn)
+
+                print("file renamed successfully.")
+                if speak_mode==1:
+                    pyttsx3.speak("file renamed successfully.")
+            else:
+                print("\n there is no such file")
+                if speak_mode==1:
+                    pyttsx3.speak("there is no such file.")
+        else:
+            nif()
 
 
     def del_files():
 
 
-
-        z_1=inp_1[1]
-        for i in inp_1[2:]:
-              z_1+=" "+i
+        if len(inp_1)!=1:
+            z_1=inp_1[1]
+            for i in inp_1[2:]:
+                  z_1+=" "+i
 
 
         if z_1 in os.listdir():
@@ -143,9 +168,7 @@ if platform.system() == "Windows":
              if speak_mode==1:
                 pyttsx3.speak(z_1+" file deleted successfully.")
         else:
-            print("there is no such file")
-            if speak_mode==1:
-                pyttsx3.speak("there is no such file.")
+            nif()
 
 
 
@@ -169,7 +192,7 @@ if platform.system() == "Darwin":
 
 #for mac
 
-    x = [[""],["Photos","photos,photo"],["Preview","preview"],["Music","music","musics"],["Podcasts","podcasts"],["iMovie","imovie","video editing"],["KeyNote","keynote","presentation"],["Stocks","stocks","stock"],["Xcode","xcode"],["Notes","notes","note","notepad"],["FaceTime","facetime","face time"],["FindMy","where is iphone","find iphone","find my","findmy"],["Photo Booth","photo booth","photobooth","photos booth","photosbooth"],["Mails","mails","emails"],["Contacts","contacts","contact"],["Whatsapp","whatsapp"],["Calender","calender","calanders"],["Reminders","reminders","reminder"],["Numbers","spreadsheet","numbers"],["Messages","messages","message"],["Maps","maps","navigate"],["TV","tv","apple tv","appletv"],["GarageBand","garageband","garage band","music mixer","music editor"],["Voice Memos","voice memos","sound secorder","recorder"],["Anac onda-Navigator", "anaconda","jupiter","Navigator","spyder"], ["App Store", "app store","applications","store","apps"], ["atom", "code in atom","coding in atom","lets code in atom","atom ide"],["Google chrome","chrome","net surfing in google","google","surf google"],["safari","net surfing","browser","default browser","sarfari browser"]]
+    x = [[""],["Photos","photos","photo"],["Preview","preview"],["Music","music","musics"],["Podcasts","podcasts"],["iMovie","imovie","video editing"],["KeyNote","keynote","presentation"],["Stocks","stocks","stock"],["Xcode","xcode"],["Notes","notes","note","notepad"],["FaceTime","facetime","face time"],["FindMy","where is iphone","find iphone","find my","findmy"],["Photo Booth","photo booth","photobooth","photos booth","photosbooth"],["Mails","mails","emails"],["Contacts","contacts","contact"],["Whatsapp","whatsapp"],["Calender","calender","calanders"],["Reminders","reminders","reminder"],["Numbers","spreadsheet","numbers"],["Messages","messages","message"],["Maps","maps","navigate"],["TV","tv","apple tv","appletv"],["GarageBand","garageband","garage band","music mixer","music editor"],["Voice Memos","voice memos","sound secorder","recorder"],["Anac onda-Navigator", "anaconda","jupiter","Navigator","spyder"], ["App Store", "app store","applications","store","apps"], ["atom", "code in atom","coding in atom","lets code in atom","atom ide"],["Google chrome","chrome","net surfing in google","google","surf google"],["safari","net surfing","browser","default browser","sarfari browser"]]
     pyttsx3.speak("you are operating this program on Macintosh.....")
 
 
@@ -194,69 +217,84 @@ if platform.system() == "Darwin":
         print("\n")
 
     def file_opener():
-        df='"'+name+ext+'"'
+        df=name+ext
         os.system("open "+df)
     def uni_f_op():
-        z_1=inp_1[1]
-        for i in inp_1[2:]:
-              z_1+=" "+i
-        z_1=z_1+'"'
-        os.system('open "'+z_1)
+        if len(inp_1)!=1:
+            z_1=inp_1[1]
+            for i in inp_1[2:]:
+                  z_1+=" "+i
+            z_1=z_1+'"'
+            os.system('open "'+z_1)
+        else:
+            nif()
 
     def folder_creater():
-        folder_n=inp_1[1]
-        for i in inp_1[2:]:
-              folder_n+=" "+i
-        folder_n=folder_n+'"'
-        
-        os.system('mkdir "'+folder_n)
+        if len(inp_1)!=1:
+            
+            folder_n=inp_1[1]
+            for i in inp_1[2:]:
+                  folder_n+=" "+i
+            folder_n=folder_n+'"'
+            os.system('mkdir "'+folder_n)
+            print("folder made successfully")
+            if speak_mode==1:
+                pyttsx3.speak("folder made successfully")
+        else:
+            nif()
 
     def rename_file():
-        z_1=inp_1[1]
-        for i in inp_1[2:]:
-              z_1+=" "+i
-
-        if z_1 in os.listdir():
-            if speak_mode==1:
-                pyttsx3.speak("Enter your files new name: ")
-            new_f=input("Enter your files new name: ")
-            nnn =' "'+new_f+'"'
-
-
-            os.system('mv "'+z_1+'"'+nnn)
-
-            print("file renamed successfully.")
-            if speak_mode==1:
-                pyttsx3.speak("file renamed successfully.")
-
-
-
+        if len(inp_1)!=1:
+            z_1=inp_1[1]
+            for i in inp_1[2:]:
+                  z_1+=" "+i
+    
+            if z_1 in os.listdir():
+                if speak_mode==1:
+                    pyttsx3.speak("Enter your files new name: ")
+                new_f=input("Enter your files new name: ")
+                nnn =' "'+new_f+'"'
+    
+    
+                os.system('mv "'+z_1+'"'+nnn)
+    
+                print("file renamed successfully.")
+                if speak_mode==1:
+                    pyttsx3.speak("file renamed successfully.")
+    
+            else:
+                print("\n there is no such file")
+                if speak_mode==1:
+                    pyttsx3.speak("there is no such file.")
+        else:
+            nif()
 
     def del_files():
 
+        if len(inp_1)!=1:
+
+            z_1=inp_1[1]
+            for i in inp_1[2:]:
+                  z_1+=" "+i
+    
+    
+            if z_1 in os.listdir():
+    
+                 
+                 os.system('rm -Rf "'+z_1+'"')
+    
+    
+                 print(z_1+" file deleted successfully.")
+                 if speak_mode==1:
+                    pyttsx3.speak(z_1+" file deleted successfully.")
+            else:
+                print("\n there is no such file")
+                if speak_mode==1:
+                    pyttsx3.speak("there is no such file.")
 
 
-        z_1=inp_1[1]
-        for i in inp_1[2:]:
-              z_1+=" "+i
-
-
-        if z_1 in os.listdir():
-
-             print(z_1)
-             os.system('rm -Rf "'+z_1+'"')
-
-
-             print(z_1+" file deleted successfully.")
-             if speak_mode==1:
-                pyttsx3.speak(z_1+" file deleted successfully.")
         else:
-            print("there is no such file")
-            if speak_mode==1:
-                pyttsx3.speak("there is no such file.")
-
-
-
+            nif()
 
 
 
@@ -279,7 +317,7 @@ while True:
 
     if "exit" in requirements or "exit()" in requirements or "good bye" in requirements or "bye" in requirements:
 
-        print(exit_speach)
+        print("\n "+exit_speach+" \n \n"+line+"\n \n")
         if speak_mode==1:
             pyttsx3.speak(exit_speach)
         break
@@ -354,13 +392,15 @@ while True:
         if speak_mode==1:
             pyttsx3.speak("welcome . , you are now in finder")
         while True :
-              print("\n \n"+line+"\n \n")
+              print("\n \n"+line+"\n"+ line+"\n \n")
+             
               if platform.system()=="Windows":
                     ls='"dir"'
                     print("hello")
               else:
                     ls = "ls"
-              os.system("DIR")
+              print("Files in directory:- \n ------------ \n")
+              os.system(ls)
               time.sleep(0.1)
               print("\n "+line+"\n \n ")
               print(" PLEASE FOLLOW THE INSTRUCTION GIVEN BELOW :-    \n \n FOR EXIT : 'exit()' \n FOR OPENING FILE : 'open filename.extention' \n FOR RENAMING FILE/FOLDER :  'rename foldername or file name.extention' \n FOR OPENING FOLDER :  'open foldername' \n FOR MAKING FOLDER: make foldername \n FOR CREATING FILE :  create  \n FOR DELETING ANY FILE/FOLDER : 'delete filename/foldername' \n \n")
@@ -371,7 +411,7 @@ while True:
 
               
 
-              if inp_1=="exit()":
+              if inp_1=="exit()" or inp_1=="exit" or inp_1=="back":
 
                   print("you exited successfully.")
                   if speak_mode==1:
@@ -409,9 +449,7 @@ while True:
                     # make FOLDER
               elif "make" in inp_1[0]:
                   folder_creater()
-                  print("folder made successfully")
-                  if speak_mode==1:
-                      pyttsx3.speak("folder made successfully")
+                  
 
 
               elif "show" in inp_1 and "file" in inp_1:
@@ -432,8 +470,9 @@ while True:
                         print('\n \n')
                         print("FOR GOING BACK PLEASE TYPE 'back()'")
                         print(""" Please enter which type of file you want if your choice not \n listed plss add extention with name to crate it \n or you can continue without extention. """)
-                        print("\n "+line)
+                        print("\n "+line+" \n")
                         Filenuser = input("Your choice please :- ")
+                        print("\n "+line+" \n")
                         
                         if "back()" in Filenuser.lower():
                             break
@@ -444,18 +483,21 @@ while True:
                         #For CREATING files
                         
                         if Filenuser.isnumeric():
-                                Filenuser=int(Filenuser)
-                                u = Filenuser - 1
-                        if u in range(0,len(file_types)):
-                            
-                            ext=file_types[u][0]
-                            name=input("Please enter file name:- ")
-                            file_creater()
-                            print("file crated successfully.")
-                            if speak_mode==1:
-                                pyttsx3.speak("file crated successfully.")
+                            Filenuser=int(Filenuser)
+                            u = Filenuser - 1
+                            if u in range(0,len(file_types)):
                                 
-                                
+                                ext=file_types[u][0]
+                                name=input("Please enter file name:- ")
+                                name='"'+name
+                                ext=ext+'"'
+                                file_creater()
+                                print("\n "+line+" \n" )
+                                print("file crated successfully.")
+                                if speak_mode==1:
+                                    pyttsx3.speak("file crated successfully.")
+                                    
+                                print("\n")
                                 open_file=input("want to open crated file (y/n) : ")
                                 if open_file=="y":
                                     file_opener()
@@ -470,6 +512,8 @@ while True:
                                 if Filenuser.lower() in file_types[u] :
                                     ext=file_types[u][0]
                                     name=input("Please enter file name:- ")
+                                    name='"'+name
+                                    ext=ext+'"'
                                     file_creater()
                                     print("file crated successfully.")
                                     if speak_mode==1:
@@ -482,8 +526,7 @@ while True:
                                     break
     
     
-    
-    
+
                             else:
                                 name, ext = os.path.splitext(Filenuser)
                                 if name=="":
@@ -510,11 +553,6 @@ while True:
                                         pyttsx3.speak(print("file crated successfully."))
     
     
-    
-
-
-
-
 
 
     elif to_control==1:
