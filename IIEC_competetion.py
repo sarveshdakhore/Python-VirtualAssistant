@@ -45,7 +45,7 @@ speak_mode = 1
 #about program
 
 negative_comment_speach = "It's a negative comment so i can't proceed."
-exit_speach = "Good bye! "+name_user+"! hope we will meet soon"
+exit_speach = " - Good bye! "+name_user+"! hope we will meet soon"
 negative_comment = ["dont",'not to','not',"don't",'never do this', 'never do' , "never" , "turn off"]
 positive_comment= ["do","now","start"]
 
@@ -54,7 +54,7 @@ speak_turn_off= "speak voice"
 speak_turn_off= speak_turn_off.split()
 
 def nif():
-    print("\n No input found")
+    print("\n - No input found")
     if speak_mode==1:
             pyttsx3.speak("No input found.")
 
@@ -117,7 +117,7 @@ if platform.system() == "Windows":
                   folder_n+=" "+i
             folder_n=folder_n+'"'
             os.system('mkdir "'+folder_n)
-            print("folder made successfully")
+            print(" - folder made successfully")
             if speak_mode==1:
                 pyttsx3.speak("folder made successfully")
         else:
@@ -138,11 +138,11 @@ if platform.system() == "Windows":
 
                 os.system('ren "'+z_1+'"'+nnn)
 
-                print("file renamed successfully.")
+                print(" - file renamed successfully.")
                 if speak_mode==1:
                     pyttsx3.speak("file renamed successfully.")
             else:
-                print("\n there is no such file")
+                print("\n - there is no such file")
                 if speak_mode==1:
                     pyttsx3.speak("there is no such file.")
         else:
@@ -164,7 +164,7 @@ if platform.system() == "Windows":
              os.system('rmdir "'+z_1+'"')
 
 
-             print(z_1+" file deleted successfully.")
+             print(z_1+" - file deleted successfully.")
              if speak_mode==1:
                 pyttsx3.speak(z_1+" file deleted successfully.")
         else:
@@ -237,7 +237,7 @@ if platform.system() == "Darwin":
                   folder_n+=" "+i
             folder_n=folder_n+'"'
             os.system('mkdir "'+folder_n)
-            print("folder made successfully")
+            print(" - folder made successfully")
             if speak_mode==1:
                 pyttsx3.speak("folder made successfully")
         else:
@@ -258,12 +258,12 @@ if platform.system() == "Darwin":
     
                 os.system('mv "'+z_1+'"'+nnn)
     
-                print("file renamed successfully.")
+                print(" - file renamed successfully.")
                 if speak_mode==1:
                     pyttsx3.speak("file renamed successfully.")
     
             else:
-                print("\n there is no such file")
+                print("\n - there is no such file")
                 if speak_mode==1:
                     pyttsx3.speak("there is no such file.")
         else:
@@ -284,11 +284,11 @@ if platform.system() == "Darwin":
                  os.system('rm -Rf "'+z_1+'"')
     
     
-                 print(z_1+" file deleted successfully.")
+                 print(z_1+" - file deleted successfully.")
                  if speak_mode==1:
                     pyttsx3.speak(z_1+" file deleted successfully.")
             else:
-                print("\n there is no such file")
+                print("\n - there is no such file")
                 if speak_mode==1:
                     pyttsx3.speak("there is no such file.")
 
@@ -336,7 +336,7 @@ while True:
                         speak_mode=0
                         to_control=0
                         to_control_b=0
-                        print("speaking mode turned off successfully")
+                        print("\n - speaking mode turned off successfully")
                         break
                     else:
                         pass
@@ -352,7 +352,8 @@ while True:
                         speak_mode=1
                         to_control_b=0
                         to_control=0
-                        print("speaking mode turned on successfully")
+                        print("\n - speaking mode turned on successfully")
+                        pyttsx3.speak("speaking mode turned on successfully")
                         break
             else:
                 pass
@@ -387,10 +388,10 @@ while True:
         show_apps()
     elif "go" in req_1 and "finder" in req_1:
         print("\n \n"+line+"\n \n")
-        print("You are now in finder \n")
+        print(" - You are now in finder. \n")
         
         if speak_mode==1:
-            pyttsx3.speak("welcome . , you are now in finder")
+            pyttsx3.speak("welcome . , you are now in finder.")
         while True :
               print("\n \n"+line+"\n"+ line+"\n \n")
              
@@ -413,7 +414,7 @@ while True:
 
               if inp_1=="exit()" or inp_1=="exit" or inp_1=="back":
 
-                  print("you exited successfully.")
+                  print(" - you exited successfully.")
                   if speak_mode==1:
                       pyttsx3.speak("you exited successfully.")
                   break
@@ -493,7 +494,7 @@ while True:
                                 ext=ext+'"'
                                 file_creater()
                                 print("\n "+line+" \n" )
-                                print("file crated successfully.")
+                                print(" - file crated successfully.")
                                 if speak_mode==1:
                                     pyttsx3.speak("file crated successfully.")
                                     
@@ -515,7 +516,7 @@ while True:
                                     name='"'+name
                                     ext=ext+'"'
                                     file_creater()
-                                    print("file crated successfully.")
+                                    print(" - file crated successfully.")
                                     if speak_mode==1:
                                         pyttsx3.speak("file crated successfully.")
                                     
@@ -530,7 +531,7 @@ while True:
                             else:
                                 name, ext = os.path.splitext(Filenuser)
                                 if name=="":
-                                    print("no file name recorded... ")
+                                    print(" - no file name recorded... ")
                                 elif ext=="":
                                     while True:
                                         ext=input("extentiom: ")
@@ -540,17 +541,17 @@ while True:
                                             break
                                         else:
                                             
-                                            print("Incorrect extention")
+                                            print(" - Incorrect extention \n")
                                             print("FOR GOING BACK PLEASE TYPE 'back()'")
                                 elif name!="" and ext!="" and "." in ext:
                                     file_creater()
-                                    print("file crated successfully.")
+                                    print(" - file crated successfully.")
                                     if speak_mode==1:
                                         pyttsx3.speak(print("file crated successfully."))
                                 else:
-                                    print("Some Eroor Occurred Pls try one more")
+                                    print(" - Some Eroor Occurred Pls try onece more")
                                     if speak_mode==1:
-                                        pyttsx3.speak(print("file crated successfully."))
+                                        pyttsx3.speak(print("Some Eroor Occurred Pls try onece more"))
     
     
 
@@ -600,11 +601,8 @@ while True:
                         app_name1=x[row][1]
                     else:
                         app_name1=x[row][0]
-                    print("Command for opening "+app_name1+". given successfully")
+                    print(" - Command for opening "+app_name1+". given successfully")
 
                     if speak_mode==1:
                         pyttsx3.speak("Command for opening "+app_name1+". given successfully")
-
-
-
                 break
