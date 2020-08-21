@@ -1,6 +1,20 @@
 # IIEC-Python
 
+
 THIS PROGRAM is mainly FOR  'Mac OS'.      🖥 💻 
+
+This is one of the finest program.... and every code is written with a very depth meaning...
+
+
+
+Outcome of Day 4 - Specialist in Python initiative by IIEC RISE mentored by Mr. Vimal Daga
+ 
+ 
+ 
+ 
+ you can open any apps you want and you can add your own apps to its very easy... 
+ I used list for opening apps, not individual sentence for opening an individual app  so there can be as many as apps you want 
+ adding apps instruction will be written there when you will run it.
 
 
 where you will save file there will be directory working means you can do multiples actions on the files present in the directory where your file is saved.
