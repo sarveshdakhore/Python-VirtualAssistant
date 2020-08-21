@@ -192,7 +192,7 @@ if platform.system() == "Darwin":
 
 #for mac
 
-    x = [[""],["Photos","photos","photo"],["Preview","preview"],["Music","music","musics"],["Podcasts","podcasts"],["iMovie","imovie","video editing"],["KeyNote","keynote","presentation"],["Stocks","stocks","stock"],["Xcode","xcode"],["Notes","notes","note","notepad"],["FaceTime","facetime","face time"],["FindMy","where is iphone","find iphone","find my","findmy"],["Photo Booth","photo booth","photobooth","photos booth","photosbooth"],["Mails","mails","emails"],["Contacts","contacts","contact"],["Whatsapp","whatsapp"],["Calender","calender","calanders"],["Reminders","reminders","reminder"],["Numbers","spreadsheet","numbers"],["Messages","messages","message"],["Maps","maps","navigate"],["TV","tv","apple tv","appletv"],["GarageBand","garageband","garage band","music mixer","music editor"],["Voice Memos","voice memos","sound secorder","recorder"],["Anac onda-Navigator", "anaconda","jupiter","Navigator","spyder"], ["App Store", "app store","applications","store","apps"], ["atom", "code in atom","coding in atom","lets code in atom","atom ide"],["Google chrome","chrome","net surfing in google","google","surf google"],["safari","net surfing","browser","default browser","sarfari browser"]]
+    x = [[""],["System Preferences","stting","settings"],["Photos","photos","photo"],["Preview","preview"],["Music","music","musics"],["Podcasts","podcasts"],["iMovie","imovie","video editing"],["KeyNote","keynote","presentation"],["Stocks","stocks","stock"],["Xcode","xcode"],["Notes","notes","note","notepad"],["FaceTime","facetime","face time"],["FindMy","where is iphone","find iphone","find my","findmy"],["Photo Booth","photo booth","photobooth","photos booth","photosbooth"],["Mails","mails","emails"],["Contacts","contacts","contact"],["Whatsapp","whatsapp"],["Calender","calender","calanders"],["Reminders","reminders","reminder"],["Numbers","spreadsheet","numbers"],["Messages","messages","message"],["Maps","maps","navigate"],["TV","tv","apple tv","appletv"],["GarageBand","garageband","garage band","music mixer","music editor"],["Voice Memos","voice memos","sound secorder","recorder"],["Anac onda-Navigator", "anaconda","jupiter","Navigator","spyder"], ["App Store", "app store","applications","store","apps"], ["atom", "code in atom","coding in atom","lets code in atom","atom ide"],["Google chrome","chrome","net surfing in google","google","surf google"],["safari","net surfing","browser","default browser","sarfari browser"]]
     pyttsx3.speak("you are operating this program on Macintosh.....")
 
 
@@ -528,31 +528,33 @@ while True:
     
     
 
-                            else:
-                                name, ext = os.path.splitext(Filenuser)
-                                if name=="":
-                                    print(" - no file name recorded... ")
-                                elif ext=="":
-                                    while True:
-                                        ext=input("extentiom: ")
-                                        if "." in ext:
-                                            break
-                                        if ext=="back()":
-                                            break
-                                        else:
-                                            
-                                            print(" - Incorrect extention \n")
-                                            print("FOR GOING BACK PLEASE TYPE 'back()'")
-                                elif name!="" and ext!="" and "." in ext:
-                                    file_creater()
-                                    print(" - file crated successfully.")
-                                    if speak_mode==1:
-                                        pyttsx3.speak(print("file crated successfully."))
                                 else:
-                                    print(" - Some Eroor Occurred Pls try onece more")
-                                    if speak_mode==1:
-                                        pyttsx3.speak(print("Some Eroor Occurred Pls try onece more"))
-    
+                                    name, ext = os.path.splitext(Filenuser)
+                                    if name=="":
+                                        print(" - no file name recorded... ")
+                                    elif ext=="":
+                                        while True:
+                                            ext=input("extentiom: ")
+                                            if "." in ext:
+                                                break
+                                            if ext=="back()":
+                                                break
+                                            else:
+                                                
+                                                print(" - Incorrect extention \n")
+                                                print("FOR GOING BACK PLEASE TYPE 'back()'")
+                                    elif name!="" and ext!="" and "." in ext:
+                                        file_creater()
+                                        print(" - file created successfully.")
+                                        if speak_mode==1:
+                                            pyttsx3.speak(print("file created successfully."))
+                                        break
+                                    else:
+                                        print(" - Some Eroor Occurred Pls try onece more")
+                                        if speak_mode==1:
+                                            pyttsx3.speak(print("Some Eroor Occurred Pls try onece more"))
+                                        break
+        
     
 
 
@@ -605,4 +607,7 @@ while True:
 
                     if speak_mode==1:
                         pyttsx3.speak("Command for opening "+app_name1+". given successfully")
+
+
+
                 break
