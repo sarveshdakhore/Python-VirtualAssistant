@@ -45,7 +45,7 @@ speak_mode = 1
 
 negative_comment_speach = "It's a negative comment so i can't proceed."
 exit_speach = " - Good bye! "+name_user+"! hope we will meet soon"
-negative_comment = ["dont",'not to','not',"don't",'never do this', 'never do' , "never" , "turn off"]
+negative_comment = ["dont",'not to','not',"don't",'never do this', 'never do' , "never" , "turn off","stop"]
 positive_comment= ["do","now","start"]
 
 
@@ -92,7 +92,11 @@ if platform.system() == "Windows":
 
     def file_creater():
         os.system("Type "+name+ext)
+        print("\n "+line+" \n")
         os.system("dir")
+        time.sleep(0.1)
+        print("\n "+line+" \n")
+        
 
     file_types=[[".txt",'Text File','textfile','text file','Text edit'],[".pptx","Power Point Presentation","ppt","powerpoint","power point" ,"presentation"],[".docx","Microsoft Word","ms word","word","msword","microsoft word"],[".xlsx","Microsoft Excel","excel"]]
 
@@ -202,7 +206,12 @@ if platform.system() == "Darwin":
 
     def file_creater():
         os.system("touch "+name+ext)
+        print("\n "+line+" \n")
         os.system("ls")
+        time.sleep(0.1)
+        print("\n "+line+" \n")
+        
+        
 
     file_types=[[".txt",'Text File','textfile','text file','Text edit'],[".pages","pages"],[".numbers","Spread Sheet","spread sheet","shhet","number"],[".pptx","Power Point Presentation","ppt","powerpoint","power point" ,"presentation"],[".docx","Microsoft Word","ms word","word","msword","microsoft word"],[".xlsx","Microsoft Excel","excel"]]
     
@@ -459,19 +468,20 @@ while True:
 
                 #create files
               elif "create" in inp_1:
-                    print("\n "+line)
-                    print("""  \n \n  what type thing you want to create
-
-                          """)
+                    
 
 
                     while True:
+                        print("\n "+line)
+                        print("""  \n \n  what type thing you want to create
+
+                          """)
                         for i in range(0,len(file_types)):
                             print((i+1),end=")  "+file_types[i][1]+"\n")
                         print("\n \n "+line)
                         print('\n \n')
-                        print("FOR GOING BACK PLEASE TYPE 'back()'")
-                        print(""" Please enter which type of file you want if your choice not \n listed plss add extention with name to crate it \n or you can continue without extention. """)
+                        print(" FOR GOING BACK PLEASE TYPE 'back()'")
+                        print(""" Please enter which type of file you want if your choice not \n listed plss add extention with name to create it \n or you can continue without extention. """)
                         print("\n "+line+" \n")
                         Filenuser = input("Your choice please :- ")
                         print("\n "+line+" \n")
@@ -495,7 +505,7 @@ while True:
                                 ext=ext+'"'
                                 file_creater()
                                 print("\n "+line+" \n" )
-                                print(" - file crated successfully.")
+                                print(" - file created successfully.")
                                 if speak_mode==1:
                                     pyttsx3.speak("file created successfully.")
                                     
@@ -503,11 +513,11 @@ while True:
                                 open_file=input("want to open created file (y/n) : ")
                                 if open_file=="y":
                                     file_opener()
-                                break
+                                    
                                     
                                     
                         
-                        else:
+                        else :
                            
                             for u in range(0,len(file_types)):
                             
@@ -517,7 +527,7 @@ while True:
                                     name='"'+name
                                     ext=ext+'"'
                                     file_creater()
-                                    print(" - file crated successfully.")
+                                    print(" - file created successfully.")
                                     if speak_mode==1:
                                         pyttsx3.speak("file created successfully.")
                                     
@@ -536,13 +546,13 @@ while True:
                                     elif ext=="":
                                         while True:
                                             ext=input("extentiom: ")
-                                            if "."==ext:
-                                                print(" - wrong input recorded")
-                                            elif "." in ext:
+                                            
+                                            if "." in ext:
                                                 file_creater()
+                                                time.sleep(0.2)
                                                 print(" - file created successfully.")
                                                 if speak_mode==1:
-                                                    pyttsx3.speak(print("file created successfully."))
+                                                    pyttsx3.speak("file created successfully.")
                                                
                                                 break
                                             if ext=='back()':
@@ -552,18 +562,21 @@ while True:
                                                 
                                                 print(" - Incorrect extention \n")
                                                 print("FOR GOING BACK PLEASE TYPE 'back()'")
+                                                
                                     elif name!="" and ext!="" and "." in ext:
                                         file_creater()
+                                        time.sleep(0.2)
                                         print(" - file created successfully.")
                                         if speak_mode==1:
-                                            pyttsx3.speak(print("file created successfully."))
-                                        break
+                                            pyttsx3.speak("file created successfully.")
+                                            
+                                        
                                     else:
-                                        print(" - Some Eroor Occurred Pls try onece more")
+                                        print(" - Some Eror Occurred Pls try onece more")
                                         if speak_mode==1:
-                                            pyttsx3.speak(print("Some Eroor Occurred Pls try onece more"))
+                                            pyttsx3.speak(print("Some Eror Occurred Pls try onece more"))
                                         break
-                                    break
+                                    
         
     
 
