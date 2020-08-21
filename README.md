@@ -9,10 +9,12 @@ where you will save file there will be directory working means you can do multip
 first download miniconda(https://docs.conda.io/en/latest/miniconda.html) or anaconda(https://www.anaconda.com/products/individual) and Python(https://www.python.org/downloads/) 
 
 if some errors occurs make sure you have installed all modules
-1) time 
+1) time  
     pip install time
+      
 2)pyttsx3
     pip install pyttsx3
+      
 
 IF STILL NOT RUNNING:
   try to copy code in python orignal idle and than run...
