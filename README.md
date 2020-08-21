@@ -4,7 +4,8 @@
 THIS PROGRAM is mainly FOR  'Mac OS'.      🖥 💻 
 
 This is one of the finest program.... and every code is written with a very depth meaning...
-
+And can do lot more things besides opening apps
+Please read full text written here to get view how rich this program is...
 
 
 Outcome of Day 4 - Specialist in Python initiative by IIEC RISE mentored by Mr. Vimal Daga
