@@ -428,10 +428,10 @@ while True:
                   if speak_mode==1:
                       pyttsx3.speak("you exited successfully.")
                   break
-
-
-              inp_1=inp_1.lower()
               inp_1 = inp_1.split()
+
+              inp_1[0]=inp_1[0].lower()
+              
 
 
               if inp_1==[]:
