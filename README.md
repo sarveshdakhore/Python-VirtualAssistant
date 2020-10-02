@@ -32,6 +32,7 @@ make sure you have installed all modules. cmd lines given bellow of each module 
                 OR                
       conda install speechrecognition   
     
+    
 FOR MAC IMPORTANT INSTRUCTION:
      1) Open Terminal  
      2) type in Terminal "touch ops.py && open osp.py"  
