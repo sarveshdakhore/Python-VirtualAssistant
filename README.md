@@ -3,6 +3,10 @@
 
 THIS PROGRAM is mainly FOR  'Mac OS'.      🖥 💻 
 
+
+IF YOU ARE OPERATING IN WINDOWS THAN:
+          MANY OF THE FEATURES WILL NOT GOING TO WORK.
+
 The Prat.py and IIEC_competetion.py should be in same location 
 
 This is one of the finest program.... and every code is written with a very depth meaning...
