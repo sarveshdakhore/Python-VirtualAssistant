@@ -34,6 +34,7 @@ make sure you have installed all modules. cmd lines given bellow of each module 
     
     
 FOR MAC IMPORTANT INSTRUCTION:
+
      1) Open Terminal  
      2) type in Terminal "touch ops.py && open osp.py"  
      3) copy code from "IIEC_competetion.py" and paste it in "osp.py"          
