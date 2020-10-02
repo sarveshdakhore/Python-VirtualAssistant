@@ -47,7 +47,13 @@ FOR MAC IMPORTANT INSTRUCTION:
      4) Now save(command+s)and close the "osp.py"    
      5) type in Terminal "touch prat.py && open prat.py"        
      6) Now copy code from "prat.py" and paste it in the blank file which is also name "prat.py"      
-     7) Now save(command+s)and close the "prat.py"      
+     7) Now save(command+s)and close the "prat.py"  
+     8) Now Oen Terminal and type "python osp.py"
+     9) Congratulations  the program will now start running 
+     10) Just say or type "exit" to stop running program
+
+
+
 
 IF STILL NOT RUNNING:
   try to copy code in python orignal idle and than run...
