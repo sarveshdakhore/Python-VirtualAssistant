@@ -7,8 +7,6 @@ This is one of the finest program.... and every code is written with a very dept
 And can do lot more things besides opening apps
 Please read full text written here to get view how rich this program is...
 
-
-Outcome of Day 4 - Specialist in Python initiative by IIEC RISE mentored by Mr. Vimal Daga
  
  
  
@@ -30,6 +28,12 @@ if some errors occurs make sure you have installed all modules. cmd lines given 
       
 2) pyttsx3  
     pip install pyttsx3
+    
+3) speechrecognition
+    pip install speechrecognition
+             OR
+    conda install speechrecognition
+    
       
 
 IF STILL NOT RUNNING:
@@ -37,4 +41,3 @@ IF STILL NOT RUNNING:
 
 
 python program made special for Mac OS there are lots of apps to open for Mac OS with just simple conversation as we do normally and even create, rename,open,view,delete files. may be some function will not work in windows, but this program is also optimised for Windows ,  because I don't have windows and I didn't tested in windows. but aps will open in windows.  
-Outcome of Day 4 - Specialist in Python initiative by IIEC RISE mentored by Mr. Vimal Daga
