@@ -29,8 +29,7 @@ make sure you have installed all modules. cmd lines given bellow of each module 
     
 3) speechrecognition   
       pip install speechrecognition  
-               OR 
-                 
+                OR                
       conda install speechrecognition   
     
       
