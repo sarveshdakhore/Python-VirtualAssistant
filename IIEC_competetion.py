@@ -343,10 +343,12 @@ while True:                                 # Start from here
             audio = r.listen(source,phrase_time_limit=3)
             try:
                 requirements = r.recognize_google(audio)
-            
-            except sr.UnknownValueError or LookupError:
-                print("No Input")
-                requirements=""
+           
+            except sr.UnknownValueError or LookupError:           
+                
+                
+                    print("No Input")
+                    requirements=""
             print(requirements)
             print("\n Speech done.....")
             print(line+"\n \n")
@@ -438,12 +440,12 @@ while True:                                 # Start from here
             else:
                 pass
 
-    elif speak_mode==0:
+    if speak_mode==0:
 
         for h in speak_turn_off:
             if h in requirements:
                 for k in sentece_postm:
-                    if k in negative_comment:
+                    if k in positive_comment:
                         speak_mode=1
                         to_control_b=0
                         to_control=0
