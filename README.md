@@ -3,7 +3,7 @@
 
 THIS PROGRAM is mainly FOR  'Mac OS'.      🖥 💻 
 
-The Prat.py and 
+The Prat.py and IIEC_competetion should be in same location 
 
 This is one of the finest program.... and every code is written with a very depth meaning...
 And can do lot more things besides opening apps
