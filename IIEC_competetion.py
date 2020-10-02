@@ -1,5 +1,8 @@
 import os
 import platform
+import prat
+import imp
+import speech_recognition as sr
 
 try:
     import time
@@ -13,12 +16,12 @@ except ModuleNotFoundError:
     os.system("pip install pyttsx3")
     import pyttsx3
 
-
+name_user="Prathmesh"
 
 line = " ___________________________________________________________________ "
 
 
-
+'''
 print("\n \n \n "+line+" \n \n \n")
 
 print("WHAT DOES THIS PROGRAM DO: \n \n 1)  YOU CAN OPEN APPLICATIONS : TO add more application just make [] seperated via couma and first \n add orignal app name in string and than the what would you will type to open the app in \n another string all strings should seperated by couma. \n")
@@ -37,19 +40,19 @@ pyttsx3.speak("User please Enter Your Name ")
 name_user=input("Enter Your Name :- ")
 print("\n \n"+line+" \n")
 
+'''
 
-
-speak_mode = 1
+speak_mode = 0
 
 #about program
 
 negative_comment_speach = "It's a negative comment so i can't proceed."
 exit_speach = " - Good bye! "+name_user+"! hope we will meet soon"
 negative_comment = ["dont",'not to','not',"don't",'never do this', 'never do' , "never" , "turn off","stop"]
-positive_comment= ["do","now","start"]
+positive_comment= ["now","start"]
 
-
-speak_turn_off= "speak voice"
+voice_off=["voice"]
+speak_turn_off= "speak"
 speak_turn_off= speak_turn_off.split()
 
 def nif():
@@ -64,8 +67,9 @@ app_name=""
 # FOR WINDOWS
 print("\t\t\t\t what can I help you with ?")
 print("\t\t\t\t-------------------------------- \n")
+'''
 pyttsx3.speak("Hello "+name_user +"! I am Darwin your virtual assistant! What can I help you with!")
-
+'''
 if platform.system() == "Windows":
     print("you are operating this program on windows.....")
     pyttsx3.speak("you are operating this program on windows.....")
@@ -194,9 +198,7 @@ if platform.system() == "Darwin":
 
 
 #for mac
-
-    x = [[""],["System Preferences","stting","settings"],["Photos","photos","photo"],["Preview","preview"],["Music","music","musics"],["Podcasts","podcasts"],["iMovie","imovie","video editing"],["KeyNote","keynote","presentation"],["Stocks","stocks","stock"],["Xcode","xcode"],["Notes","notes","note","notepad"],["FaceTime","facetime","face time"],["FindMy","where is iphone","find iphone","find my","findmy"],["Photo Booth","photo booth","photobooth","photos booth","photosbooth"],["Mails","mails","emails"],["Contacts","contacts","contact"],["Whatsapp","whatsapp"],["Calender","calender","calanders"],["Reminders","reminders","reminder"],["Numbers","spreadsheet","numbers"],["Messages","messages","message"],["Maps","maps","navigate"],["TV","tv","apple tv","appletv"],["GarageBand","garageband","garage band","music mixer","music editor"],["Voice Memos","voice memos","sound secorder","recorder"],["Anac onda-Navigator", "anaconda","jupiter","Navigator","spyder"], ["App Store", "app store","applications","store","apps"], ["atom", "code in atom","coding in atom","lets code in atom","atom ide"],["Google chrome","chrome","net surfing in google","google","surf google"],["safari","net surfing","browser","default browser","sarfari browser"]]
-    pyttsx3.speak("you are operating this program on Macintosh.....")
+    x=prat.apps_list_fin
 
 
 
@@ -221,7 +223,7 @@ if platform.system() == "Darwin":
         print("THE APPS THAT I CAN OPEN FOR YOU IF IT EXIST: \n")
         for i in range(1,len(x)):
             q = str(i)
-            print(q+") "+x[i][0])
+            print(q+") "+x[i][1])
         print("\n")
 
     def file_opener():
@@ -310,15 +312,46 @@ if platform.system() == "Darwin":
 else:
     print("THIS PROGRAM IS NOT MADE FOR YOUR OPERATING SYSTEM")
 
+voice_control=0
+pyttsx3.speak("How Can I help You with .")
+show_apps()
 
-while True:
-    print("\n "+line+" \n")
+
+
+
+
+
+while True:                                 # Start from here
+    to_control_app_opening=1
+    imp.reload(prat)
+    to_control_understanding=1
+    x = prat.apps_list_fin  
+    
+    app_list_n=[]
+    print("\n"+line+" \n")
     to_control=1
     to_control_b=1
-
-    show_apps()
-    print(line+" \n \n")
-    requirements = input("enter your choice:- ")
+    
+    
+    print(line +" \n \n")
+    if voice_control==1:
+        
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            print("Say what you want? \n")
+            r.adjust_for_ambient_noise(source)
+            audio = r.listen(source,phrase_time_limit=3)
+            try:
+                requirements = r.recognize_google(audio)
+            
+            except sr.UnknownValueError or LookupError:
+                print("No Input")
+                requirements=""
+            print(requirements)
+            print("\n Speech done.....")
+            print(line+"\n \n")
+    else:
+        requirements = input("enter your choice:- ")
     req_2=requirements
     requirements=requirements.lower()
     req_1 = requirements
@@ -337,6 +370,60 @@ while True:
 
 
     sentece_postm = requirements.split()
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    if voice_control==1:
+        for h in voice_off:
+            if h in requirements:
+                for k in negative_comment:
+                    if k in requirements:
+                        voice_control=0
+                        to_control=0
+                        to_control_b=0
+                        print("\n - Voice control turned off successfully")
+                        if speak_mode==1:
+                            pyttsx3.speak("Voice control turned off successfully")
+                        else:
+                            pass
+                        break
+                    else:
+                        pass
+            else:
+                pass
+
+    elif voice_control==0:
+
+        for h in voice_off:
+            if h in requirements:
+                for k in positive_comment:
+                    if k in requirements:
+                        voice_control=1
+                        to_control=0
+                        to_control_b=0
+                        print("\n - Voice control turned on successfully")
+                        pyttsx3.speak("Voice control turned on successfully")
+                        break
+            else:
+                pass
+    
+    
+    
+    
+    
+    
+    
+    
     if speak_mode==1:
         for h in speak_turn_off:
             if h in requirements:
@@ -380,8 +467,9 @@ while True:
         for h in sentece_postm:
             if (h in negative_comment) and h not in speak_turn_off :
                 print(negative_comment_speach)
+                to_control=0
                 if speak_mode==1:
-                    to_control=0
+                    
                     pyttsx3.speak(negative_comment_speach)
 
                 break
@@ -389,12 +477,141 @@ while True:
                 break
 
 
+
+
+
+
+
+
+
+
+
+    if ("remove" in requirements or "delete" in requirements) and ("app" in requirements or "apps" in requirements) and to_control==1:
+        t=len(x)+1
+        show_apps()
+        print(line)
+        while True:
+            rm_app=""
+            try:
+                rm_app=int(input("Enter number :- "))
+            except ValueError:
+                pass
+            if rm_app==0:
+                print("Exited!!")
+                if speak_mode==1:
+                    pyttsx3.speak("Exited")
+            
+            if rm_app in range(1,t):
+                with open("prat.py","a+") as file_O:
+                    rm=str(rm_app)
+                    file_O.write("\n")
+                    print(x[rm_app][0]+" Removed successfully !!")
+                    to_control_app_opening=0
+                    print("\n"+line)
+                    if speak_mode==1:
+                        print("\n")
+                        pyttsx3.speak(x[rm_app][0]+" Removed successfully")
+                    file_O.write("apps_list_fin.remove(apps_list_fin["+rm+"])")
+                    imp.reload(prat)
+                    break
+            else:
+                print("\n Wrong Input!!")
+                print(line)
+                if speak_mode==1:
+                    pyttsx3.speak("Wrong Input")
+                    
+                
+                
+                
+
+    if ("add" in requirements) and ("app" in requirements or "apps" in requirements) and to_control==1:
+        while True:
+            n_app=input("Display Name :-  ")
+            if len(n_app.split()) == 0:
+                print("\n No Input")
+                print(line)
+                if speak_mode==1:
+                    pyttsx3.speak("No Input")
+                else:
+                    pass
+            elif n_app=="exit":
+                break
+            else:
+                n_app_act=input("Actual Name :-  ")
+                if len(n_app_act.split()) == 0:
+                    print("\n No Input")
+                    print(line)
+                    if speak_mode==1:
+                        pyttsx3.speak("No Input")
+                    else:
+                        pass
+                elif n_app_act=="exit":
+                    break
+                else:
+                    
+                    nic_name_app=[]
+                    
+                    n_app_nic=""
+                    while True:
+                        n_app_nic=input("Nick Name :-  ")
+                        n_app_nic=n_app_nic.lower()
+                        if len(n_app_nic.split()) == 0:
+                            print("\n No Input")
+                            print(line)
+                            if speak_mode==1:
+                                pyttsx3.speak("No Input")
+                            else:
+                                pass
+                        elif n_app_nic=="exit":
+                            break
+                        else:
+                            nic_name_app.append(n_app_nic)
+                    app_list_n.append(n_app_act)
+                    app_list_n.append(n_app)
+                    for i in range(len(nic_name_app)):
+                        app_list_n.append(nic_name_app[i])
+                    
+                        
+                          
+                            
+                    with open("prat.py","a+") as file_O:
+                        file_O.seek(0)
+                        
+                        
+                        app_list="'"+"','".join(app_list_n)+"'"       
+                                                                       #bvcahgddjvkcvhdvsachkjshavdjc 
+                        file_O.write("\n")
+                        file_O.write("x_0 = ["+app_list+"]")
+                        file_O.write("\n")
+                        file_O.write("apps_list_fin.append(x_0)")
+                        file_O.write("\n")
+                        imp.reload(prat)
+                        imp.reload(prat)
+                        to_control_understanding=0
+                        print("\n"+line+"\n")
+                        print(n_app+" Added successfully !!")
+                        print(line)
+                        if speak_mode==1:
+                            pyttsx3.speak(n_app+" Added successfully")
+                        break
+                            
+                            
+                            
+                        
+
+
+
+
+
+
+
+
 #------
     
         
             # file creater
 
-    if "show" in requirements and "app" in requirements:
+    if "show" in requirements and "app" in requirements and to_control==1:
         show_apps()
     elif "go" in req_1 and "finder" in req_1:
         print("\n \n"+line+"\n \n")
@@ -581,7 +798,7 @@ while True:
     
 
 
-    elif to_control==1:
+    elif to_control==1 and to_control_app_opening==1:
 
         for h in sentece_postm:
             if (h in negative_comment) and h not in speak_turn_off :
@@ -594,7 +811,7 @@ while True:
 
 
 
-            else:
+        if to_control==1 and to_control_understanding==1:
                 
                 
                 if req_2.isnumeric():
@@ -615,7 +832,7 @@ while True:
                             else:
                                 pass
 
-                if row ==0:
+                if row ==0 and to_control_understanding==1:
                     print("Unable to understand")
                     if speak_mode==1:
                         pyttsx3.speak("Unable to understand")
@@ -633,4 +850,5 @@ while True:
 
 
 
-                break
+                
+
