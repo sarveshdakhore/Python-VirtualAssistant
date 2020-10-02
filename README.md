@@ -28,9 +28,9 @@ make sure you have installed all modules. cmd lines given bellow of each module 
     pip install pyttsx3
     
 3) speechrecognition
-    pip install speechrecognition
-             OR
-    conda install speechrecognition
+     pip install speechrecognition 
+              OR
+     conda install speechrecognition
     
       
 
