@@ -33,13 +33,13 @@ make sure you have installed all modules. cmd lines given bellow of each module 
       conda install speechrecognition   
     
 FOR MAC IMPORTANT INSTRUCTION:
-    1) Open Terminal  
-    2) type in Terminal "touch ops.py && open osp.py"  
-    3) copy code from "IIEC_competetion.py" and paste it in "osp.py"   
-    4) Now save(command+s)and close the "osp.py" 
-    5) type in Terminal "touch prat.py && open prat.py" 
-    6) Now copy code from "prat.py" and paste it in the blank file which is also name "prat.py" 
-    7) Now save(command+s)and close the "prat.py" 
+     1) Open Terminal  
+     2) type in Terminal "touch ops.py && open osp.py"  
+     3) copy code from "IIEC_competetion.py" and paste it in "osp.py"          
+     4) Now save(command+s)and close the "osp.py"    
+     5) type in Terminal "touch prat.py && open prat.py"        
+     6) Now copy code from "prat.py" and paste it in the blank file which is also name "prat.py"      
+     7) Now save(command+s)and close the "prat.py"      
 
 IF STILL NOT RUNNING:
   try to copy code in python orignal idle and than run...
