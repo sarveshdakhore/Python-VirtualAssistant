@@ -386,16 +386,15 @@ while True:                                 # Start from here
     if voice_control==1:
         for h in voice_off:
             if h in requirements:
-                for k in negative_comment:
-                    if k in requirements:
+                for k in sentece_postm:
+                    if k in negative_comment:
                         voice_control=0
                         to_control=0
                         to_control_b=0
                         print("\n - Voice control turned off successfully")
-                        if speak_mode==1:
-                            pyttsx3.speak("Voice control turned off successfully")
-                        else:
-                            pass
+                        
+                        pyttsx3.speak("Voice control turned off successfully")
+                       
                         break
                     else:
                         pass
@@ -406,8 +405,8 @@ while True:                                 # Start from here
 
         for h in voice_off:
             if h in requirements:
-                for k in positive_comment:
-                    if k in requirements:
+                for k in sentece_postm:
+                    if k in positive_comment:
                         voice_control=1
                         to_control=0
                         to_control_b=0
@@ -427,8 +426,8 @@ while True:                                 # Start from here
     if speak_mode==1:
         for h in speak_turn_off:
             if h in requirements:
-                for k in negative_comment:
-                    if k in requirements:
+                for k in sentece_postm:
+                    if k in negative_comment:
                         speak_mode=0
                         to_control=0
                         to_control_b=0
@@ -443,8 +442,8 @@ while True:                                 # Start from here
 
         for h in speak_turn_off:
             if h in requirements:
-                for k in positive_comment:
-                    if k in requirements:
+                for k in sentece_postm:
+                    if k in negative_comment:
                         speak_mode=1
                         to_control_b=0
                         to_control=0
@@ -834,7 +833,7 @@ while True:                                 # Start from here
 
                 if row ==0 and to_control_understanding==1:
                     print("Unable to understand")
-                    if speak_mode==1:
+                    if speak_mode==1 and voice_control==0:
                         pyttsx3.speak("Unable to understand")
                 else:
                     app_name=x[row][0]
