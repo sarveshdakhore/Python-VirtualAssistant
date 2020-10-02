@@ -49,7 +49,7 @@ speak_mode = 0
 negative_comment_speach = "It's a negative comment so i can't proceed."
 exit_speach = " - Good bye! "+name_user+"! hope we will meet soon"
 negative_comment = ["dont",'not to','not',"don't",'never do this', 'never do' , "never" , "turn off","stop"]
-positive_comment= ["now","start"]
+positive_comment= ["do","now","start"]
 
 voice_off=["voice"]
 speak_turn_off= "speak"
