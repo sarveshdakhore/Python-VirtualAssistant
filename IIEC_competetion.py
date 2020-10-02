@@ -206,6 +206,8 @@ if platform.system() == "Darwin":
     def open_app():
         os.system('open -a "'+app_name+'".app')
 
+        
+        
     def file_creater():
         os.system("touch "+name+ext)
         print("\n "+line+" \n")
@@ -215,7 +217,6 @@ if platform.system() == "Darwin":
         
         
 
-    file_types=[[".txt",'Text File','textfile','text file','Text edit'],[".pages","pages"],[".numbers","Spread Sheet","spread sheet","shhet","number"],[".pptx","Power Point Presentation","ppt","powerpoint","power point" ,"presentation"],[".docx","Microsoft Word","ms word","word","msword","microsoft word"],[".xlsx","Microsoft Excel","excel"]]
     
         
     def show_apps():
@@ -312,7 +313,7 @@ if platform.system() == "Darwin":
 else:
     print("THIS PROGRAM IS NOT MADE FOR YOUR OPERATING SYSTEM")
 
-voice_control=1
+voice_control=0
 pyttsx3.speak("How Can I help You with .")
 show_apps()
 
@@ -321,11 +322,17 @@ show_apps()
 
 
 
-while True:                                 # Start from here
+while True:       
+                             # Start from here
     to_control_app_opening=1
     imp.reload(prat)
     to_control_understanding=1
+    
+    
+    file_types=prat.file_list_fin 
     x = prat.apps_list_fin  
+    
+    
     
     app_list_n=[]
     print("\n"+line+" \n")
@@ -352,6 +359,7 @@ while True:                                 # Start from here
             print(requirements)
             print("\n Speech done.....")
             print(line+"\n \n")
+    
     else:
         requirements = input("enter your choice:- ")
     req_2=requirements
@@ -371,20 +379,10 @@ while True:                                 # Start from here
     row = 0        #row
 
 
+    
+    
     sentece_postm = requirements.split()
     
-
-
-
-
-
-
-
-
-
-
-
-
     if voice_control==1:
         for h in voice_off:
             if h in requirements:
@@ -403,6 +401,8 @@ while True:                                 # Start from here
             else:
                 pass
 
+            
+            
     elif voice_control==0:
 
         for h in voice_off:
@@ -440,6 +440,10 @@ while True:                                 # Start from here
             else:
                 pass
 
+            
+            
+            
+            
     if speak_mode==0:
 
         for h in speak_turn_off:
@@ -477,17 +481,17 @@ while True:                                 # Start from here
             if (h in negative_comment) and (h in speak_turn_off):
                 break
 
-
-
-
-
-
-
-
-
-
+                
+                
+                
+                
+                
+                
+                
+#ADD REMOVE APPS
 
     if ("remove" in requirements or "delete" in requirements) and ("app" in requirements or "apps" in requirements) and to_control==1:
+        to_control_app_opening=0
         t=len(x)+1
         show_apps()
         print(line)
@@ -497,24 +501,32 @@ while True:                                 # Start from here
                 rm_app=int(input("Enter number :- "))
             except ValueError:
                 pass
+            
+            
+            
             if rm_app==0:
                 print("Exited!!")
                 if speak_mode==1:
                     pyttsx3.speak("Exited")
             
+            
+            
             if rm_app in range(1,t):
                 with open("prat.py","a+") as file_O:
                     rm=str(rm_app)
                     file_O.write("\n")
-                    print(x[rm_app][0]+" Removed successfully !!")
+                    print(x[rm_app][1]+" Removed successfully !!")
                     to_control_app_opening=0
                     print("\n"+line)
                     if speak_mode==1:
                         print("\n")
-                        pyttsx3.speak(x[rm_app][0]+" Removed successfully")
+                        pyttsx3.speak(x[rm_app][1]+" Removed successfully")
                     file_O.write("apps_list_fin.remove(apps_list_fin["+rm+"])")
                     imp.reload(prat)
                     break
+            
+            
+            
             else:
                 print("\n Wrong Input!!")
                 print(line)
@@ -525,7 +537,9 @@ while True:                                 # Start from here
                 
                 
 
+                
     if ("add" in requirements) and ("app" in requirements or "apps" in requirements) and to_control==1:
+        to_control_app_opening=0
         while True:
             n_app=input("Display Name :-  ")
             if len(n_app.split()) == 0:
@@ -537,7 +551,7 @@ while True:                                 # Start from here
                     pass
             elif n_app=="exit":
                 break
-            else:
+            else:#bnvsd
                 n_app_act=input("Actual Name :-  ")
                 if len(n_app_act.split()) == 0:
                     print("\n No Input")
@@ -595,10 +609,10 @@ while True:                                 # Start from here
                         if speak_mode==1:
                             pyttsx3.speak(n_app+" Added successfully")
                         break
-                            
-                            
-                            
                         
+                        
+                        
+#----------  
 
 
 
@@ -606,10 +620,6 @@ while True:                                 # Start from here
 
 
 
-
-#------
-    
-        
             # file creater
 
     if "show" in requirements and "app" in requirements and to_control==1:
@@ -661,7 +671,6 @@ while True:                                 # Start from here
                   uni_f_op()
 
 
-
                   # DELETE FILE
               elif   "delete" in inp_1[0]:
 
@@ -684,35 +693,165 @@ while True:                                 # Start from here
               elif "show" in inp_1 and "file" in inp_1:
                    os.system(ls)
 
+                    
+                    
                 #create files
               elif "create" in inp_1:
                     
 
 
                     while True:
+                        
                         print("\n "+line)
                         print("""  \n \n  what type thing you want to create
 
                           """)
-                        for i in range(0,len(file_types)):
-                            print((i+1),end=")  "+file_types[i][1]+"\n")
+                        def show_files():
+                            for i in range(0,len(file_types)):
+                                print((i+1),end=")  "+file_types[i][1]+"\n")
+                    
+                        imp.reload(prat)
+                        file_types=prat.file_list_fin 
+                        show_files()
+                        
                         print("\n \n "+line)
                         print('\n \n')
                         print(" FOR GOING BACK PLEASE TYPE 'back()'")
                         print(""" Please enter which type of file you want if your choice not \n listed plss add extention with name to create it \n or you can continue without extention. """)
+                        
+                        
                         print("\n "+line+" \n")
                         Filenuser = input("Your choice please :- ")
                         print("\n "+line+" \n")
                         
+                            
                         if "back()" in Filenuser.lower():
                             break
                         
+                       
+                        #FILE REMOVER
+                        if Filenuser.lower()=="remove file" or Filenuser=="delete file":
+                            to_control_app_opening=0
+                            t_1=len(file_types)+1
+                            show_files()
+                            print(line)
+                            while True:
+                                rm_file=""
+                                try:
+                                    print("\n \nTo Exit --> '0'")
+                                    rm_file=int(input("Enter number :- "))
+                                except ValueError:
+                                    pass
+                                if rm_file==0:
+                                    print("Exited!!")
+                                    if speak_mode==1:
+                                        pyttsx3.speak("Exited")
+                                    break
+                                elif rm_file in range(1,t_1):
+                                    with open("prat.py","a+") as file_O:
+                                        rm_file=rm_file-1
+                                        rmm=str(rm_file)
+                                        file_O.write("\n")
+                                        print(file_types[rm_file][1]+" Removed successfully !!")
+                                        to_control_app_opening=0
+                                        print("\n"+line)
+                                        if speak_mode==1:
+                                            print("\n")
+                                            pyttsx3.speak(file_types[rm_file][1]+" Removed successfully")
+                                        file_O.write("file_list_fin.remove(file_list_fin["+rmm+"])")
+                                        imp.reload(prat)
+                                        break
+                                else:
+                                    print("\n Wrong Input!!")
+                                    print(line)
+                                    if speak_mode==1:
+                                        pyttsx3.speak("Wrong Input")                    
+                       
+                      
                         
                         
+                        
+                        
+                        
+                        
+                        
+                        #File ADDER
+                        
+                        elif Filenuser.lower()=="add file":
+                            file_list_n=[]
+                            to_control_app_opening=0
+                            while True:
+                                n_file=input("Display Name :-  ")
+                                if len(n_file.split()) == 0:
+                                    print("\n No Input")
+                                    print(line)
+                                    if speak_mode==1:
+                                        pyttsx3.speak("No Input")
+                                    else:
+                                        pass
+                                elif n_file=="exit":
+                                    break
+                                else:
+                                    n_file_ext=input("File extention(use '.') :-  ")
+                                    
+                                    if n_file_ext=="exit":
+                                        break
+                                    elif len(n_file_ext.split()) == 0 or n_file_ext[0]!=".":
+                                        print("\n No Input")
+                                        print(line)
+                                        if speak_mode==1:
+                                            pyttsx3.speak("No Input")
+                                    
+                                        else:
+                                            pass
+                                    else:
+                                        nic_name_file=[]
+                                        n_file_nic=""
+                                        while True:
+                                            n_file_nic=input("Nick Name :-  ")
+                                            n_file_nic=n_file_nic.lower()
+                                            if len(n_file_nic.split()) == 0:
+                                                print("\n No Input")
+                                                print(line)
+                                                if speak_mode==1:
+                                                    pyttsx3.speak("No Input")
+                                                else:
+                                                    pass
+                                            elif n_file_nic=="exit":
+                                                break
+                                            else:
+                                                nic_name_file.append(n_file_nic)
+                                        file_list_n.append(n_file_ext)
+                                        file_list_n.append(n_file)
+                                        for i in range(len(nic_name_file)):
+                                            app_list_n.append(nic_name_file[i])
+                                            
+                                        with open("prat.py","a+") as file_O:
+                                            file_O.seek(0)
+                                            file_list="'"+"','".join(file_list_n)+"'"       
+                                                                       #bvcahgddjvkcvhdvsachkjshavdjc 
+                                            file_O.write("\n")
+                                            file_O.write("x_1 = ["+file_list+"]")
+                                            file_O.write("\n")
+                                            file_O.write("file_list_fin.append(x_1)")
+                                            file_O.write("\n")
+                                            imp.reload(prat)
+                                            to_control_understanding=0
+                                            print("\n"+line+"\n")
+                                            print(n_file+" Added successfully !!")
+                                            print(line)
+                                            if speak_mode==1:
+                                                pyttsx3.speak(n_file+" Added successfully")
+                                            break                  
+              
+            
+            
+            
+            
                         
                         #For CREATING files
                         
-                        if Filenuser.isnumeric():
+                        elif Filenuser.isnumeric():
                             Filenuser=int(Filenuser)
                             u = Filenuser - 1
                             if u in range(0,len(file_types)):
@@ -733,7 +872,10 @@ while True:                                 # Start from here
                                     file_opener()
                                     
                                     
-                                    
+           
+        
+        
+        
                         
                         else :
                            
@@ -829,6 +971,10 @@ while True:                                 # Start from here
                                 row=r
     
                                 break
+    
+    
+    
+    
     
                             else:
                                 pass
