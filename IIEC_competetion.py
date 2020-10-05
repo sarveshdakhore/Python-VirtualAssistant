@@ -16,7 +16,7 @@ except ModuleNotFoundError:
     os.system("pip install pyttsx3")
     import pyttsx3
 
-name_user="Prathmesh"
+name_user=""
 
 line = " ___________________________________________________________________ "
 
@@ -521,7 +521,13 @@ while True:                                                                     
                     if speak_mode==1:
                         print("\n")
                         pyttsx3.speak(x[rm_app][1]+" Removed successfully")
-                    file_O.write("apps_list_fin.remove(apps_list_fin["+rm+"])")
+                    if platform.system() == "Darwin":
+                        os_1="apps_list_mac"
+                        var_1="x_mac"
+                    elif platform.system()=="Winsows":
+                        os_1="apps_list_win"
+                        var_1="x_win"
+                    file_O.write(os_1+".remove("+os_1+"["+rm+"])")
                     imp.reload(prat)
                     break
             else:
