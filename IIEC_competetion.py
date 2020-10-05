@@ -1,24 +1,13 @@
 import os
 import platform
 import prat
-os.system("conda install pyaudio")
-try:
-    import imp
-except ModuleNotFoundError:
-    os.system("conda install imp")
-    import imp
-
-    
-try:
-    import speech_recognition as sr
-except ModuleNotFoundError:
-    os.system("pip install speechrecognition")
-    import speech_recognition as sr
+import imp
+import speech_recognition as sr
 
 try:
     import time
 except ModuleNotFoundError:
-    os.system("conda install time")
+    os.system("pip install time")
     import time
 
 try:
@@ -27,7 +16,7 @@ except ModuleNotFoundError:
     os.system("pip install pyttsx3")
     import pyttsx3
 
-name_user=""
+name_user="Prathmesh"
 
 line = " ___________________________________________________________________ "
 
@@ -75,7 +64,7 @@ def nif():
     if speak_mode==1:
             pyttsx3.speak("No input found.")
 
-
+to_clear_screen=[]
 app_name=""
 
 
@@ -88,18 +77,18 @@ pyttsx3.speak("Hello "+name_user +"! I am Darwin your virtual assistant! What ca
 if platform.system() == "Windows":
     print("you are operating this program on windows.....")
     pyttsx3.speak("you are operating this program on windows.....")
-    '''
-    pyttsx3.speak("This program is mainly made for Mac (OS)! but optimized also for windows! There are some chances that some function may not work in windows")
-'''
     
+    pyttsx3.speak("This program is mainly made for Mac (OS)! but optimized also for windows! There are some chances that some function may not work in windows")
+
+    x = [[""],["wmplayer","Windows Media Player","windows media player","windowsmediaplayer","wmp","video player"],["control","setting","settings","control","love to change things"],["Anaconda Navigator", "anaconda","Anaconda-Navigator","conda","Navigator"],["MsEdge", "Microsoft Edge","edge","edge browser","micrisoft browser"],["chrome","Google chrome","browser","net surfing in google "],["arcroRd32","acrobat","adobe acrobat"],["creative cloud","creative cloud","adobe cloud",],["illustrartor","Adobe illustrartor","illustrator","illustator","design","designing"," adobe logo maker"],["photoshop","photo shop","Photoeditor","editing"],["Excel","Microsoft Excel","excel","microsoft excel","excel data entry",],["chrome","Google chrome","net surfing in google"],["onenote","Microsoft OneNote","office","mf office",],["powerpnt","Power Point","powerpoint","power point","Presentation","ppt presentation",],["winword","document","word","writing pad"]]
 
 
-    x=prat.apps_list_win
+    x=prat.app_list_win
     
     
     def show_apps():
         print("\n \n")
-        print("THE APPS THAT I CAN OPEN FOR YOU IF IT EXIST(to add more apps: type 'add apps'): \n")
+        print("THE APPS THAT I CAN OPEN FOR YOU IF IT EXIST: \n")
         for i in range(1,len(x)):
             q=str(i)
             print(q+") "+x[i][1])
@@ -193,8 +182,14 @@ if platform.system() == "Windows":
             nif()
 
 
+lop=""
 
-
+if platform.system() == "Windows":
+     lop= "os.system('start ' +app_name)"
+if platform.system()=="Darwin":
+     lop= "os.system('open -a "'+app_name+'".app')"
+        
+    
 
 
 #qwertyuiopasdfghjklzxcvbnm
@@ -206,7 +201,6 @@ if platform.system() == "Windows":
 # MAC START HERE
 if platform.system() == "Darwin":
     print("you are operating this program on Mac.....")
-
 
 
 
@@ -326,7 +320,7 @@ if platform.system() == "Darwin":
 else:
     print("THIS PROGRAM IS NOT MADE FOR YOUR OPERATING SYSTEM")
 
-voice_control=1
+voice_control=0
 pyttsx3.speak("How Can I help You with .")
 show_apps()
 
@@ -337,6 +331,7 @@ show_apps()
 
 while True:                                                                               # Start from here
     
+    to_clear_screen.append("1")
     
     to_control_switch=1
     to_control_app_opening=1
@@ -347,7 +342,13 @@ while True:                                                                     
     elif platform.system()=="Windows":
         x= prat.apps_list_win
     file_types=prat.file_list_fin 
-      
+    if len(to_clear_screen)>60:
+        show_apps()
+        to_clear_screen.clear()
+        if platform.system()=="Darwin":
+            os.system("clear")
+        elif platform.system()=="Windows":
+            os.system("cls")
     
     app_list_n=[]
     print("\n"+line+" \n")
@@ -554,6 +555,7 @@ while True:                                                                     
     if ("add" in requirements) and ("app" in requirements or "apps" in requirements) and (to_control==1) and (platform.system()=="Darwin" or platform.system()=="Windows"):
         to_control_app_opening=0
         while True:
+            pop_1=1
             n_app=input("Display Name :-  ")
             if len(n_app.split()) == 0:
                 print("\n No Input")
@@ -573,9 +575,30 @@ while True:                                                                     
                         pyttsx3.speak("No Input")
                     else:
                         pass
+                
+                             
+                        
                 elif n_app_act=="exit":
                     break
-                else:
+                if platform.system()=="Darwin":
+                        err_app = 256
+                        os_2="apps_list_mac"
+                        if os.system('open -a "'+n_app_act+'".app') == err_app:
+                            print("App does not exist.")
+                            print(line+"\n")
+                            pop_1=0
+                elif platform.system()=="Windows":
+                    err_app = 1
+                    os_2="apps_list_win"
+                    if os.system('start ' +n_app_act) == err_app:
+                            print("App does not exist.")
+                            print(line+"\n")
+                            pop_1=0
+                
+                if pop_1!=0:
+                    
+                    print("\n \t \t app is opened for confirmation... \n")
+                    
                     
                     nic_name_app=[]
                     
@@ -611,7 +634,7 @@ while True:                                                                     
                         if platform.system() == "Darwin":
                             os_1="apps_list_mac"
                             var_1="x_mac"
-                        elif platform.system()=="Windows":
+                        elif platform.system()=="Winsows":
                             os_1="apps_list_win"
                             var_1="x_win"
                         def app_loader(os,var): 
@@ -624,10 +647,11 @@ while True:                                                                     
                         app_loader(os=os_1,var=var_1)
                         imp.reload(prat)
                         imp.reload(prat)
+                       
                         to_control_understanding=0
                         print("\n"+line+"\n")
                         print(n_app+" Added successfully !!")
-                        print(line)
+                        
                         if speak_mode==1:
                             pyttsx3.speak(n_app+" Added successfully")
                         break
@@ -853,7 +877,7 @@ while True:                                                                     
                                         file_list_n.append(n_file)
                                         for i in range(len(nic_name_file)):
                                             app_list_n.append(nic_name_file[i])
-                                            
+                                        
                                         with open("prat.py","a+") as file_O:
                                             file_O.seek(0)
                                             file_list="'"+"','".join(file_list_n)+"'"       
@@ -1010,18 +1034,51 @@ while True:                                                                     
                     print("Unable to understand")
                     if speak_mode==1 and voice_control==0:
                         pyttsx3.speak("Unable to understand")
+                
+                
                 else:
+                    row1=str(row)
                     app_name=x[row][0]
-                    open_app()
-                    if platform.system()=="Windows":
-                        app_name1=x[row][1]
+                    if platform.system()=="Darwin":
+                        err_app = 256
+                        os_2="apps_list_mac"
+                        if os.system('open -a "'+app_name+'".app')== err_app:
+                            print("App does not exist. \n It has been removed as its not existed \n")
+                            print(line+"\n")
+                            with open("prat.py","a+") as file_O:
+                                file_O.seek(0)
+                                print(x[row][1]+" Removed successfully !!")
+                                file_O.write("\n")
+                                
+                                file_O.write(os_2+".remove("+os_2+"["+row1+"])")
+                             
+                    elif platform.system()=="Windows":
+                        err_app = 1
+                        os_2="apps_list_win"
+                    
+                    
+                        if os.system('start ' +app_name) == err_app:
+                            print("App does not exist. \n It has been removed as its not existed \n")
+                            print(line+"\n")
+                            with open("prat.py","a+") as file_O:
+                                file_O.seek(0)
+                                print(x[row][1]+" Removed successfully !!")
+                                file_O.write("\n")
+                              
+                                file_O.write(os_2+".remove("+os_2+"["+row1+"])")
+                                show_apps()
+                             
+                        
+                    
                     else:
-                        app_name1=x[row][0]
-                    print(" - Command for opening "+app_name1+". given successfully")
-
-                    if speak_mode==1:
-                        pyttsx3.speak("Command for opening "+app_name1+". given successfully")
-
+                        open_app()
+                        app_name1=x[row][1]
+                        
+                        print(" - Command for opening "+app_name1+". given successfully")
+    
+                        if speak_mode==1:
+                            pyttsx3.speak("Command for opening "+app_name1+". given successfully")
+    
 
 
                 
