@@ -21,17 +21,21 @@ name_user="Prathmesh"
 line = " ___________________________________________________________________ "
 
 
+
+    
+
+
+
+
+
+
 '''
 print("\n \n \n "+line+" \n \n \n")
-
 print("WHAT DOES THIS PROGRAM DO: \n \n 1)  YOU CAN OPEN APPLICATIONS : TO add more application just make [] seperated via couma and first \n add orignal app name in string and than the what would you will type to open the app in \n another string all strings should seperated by couma. \n")
 print("\t\t\t\t-----------------------------------")
 print("\n 2) YOU CAN GO TO FINDER by typing 'go to finder' : there are lots of thigs to do \n")
 print("\t\t\t\t-----------------------------------")
 print("\n 3) YOU CAN TURN ON OR OFF SPEAKING OF YOUR DEVICE BY TYPING NEGATIVE WORD LIKE 'not,never,etc'  and on by typing 'now speak, do speak' \n \n ")
-
-
-
 
 print(line+" \n")
 print(" This specially made for mac users  \n You can open all apps which mac have. \n and programe is written in mac")
@@ -49,9 +53,9 @@ speak_mode = 0
 negative_comment_speach = "It's a negative comment so i can't proceed."
 exit_speach = " - Good bye! "+name_user+"! hope we will meet soon"
 negative_comment = ["dont",'not to','not',"don't",'never do this', 'never do' , "never" , "turn off","stop"]
-positive_comment= ["do","now","start"]
+positive_comment= ["do","now","start","turn on","turnon"]
 
-voice_off=["voice"]
+voice_off=["voice","voice control"]
 speak_turn_off= "speak"
 speak_turn_off= speak_turn_off.split()
 
@@ -79,7 +83,7 @@ if platform.system() == "Windows":
     x = [[""],["wmplayer","Windows Media Player","windows media player","windowsmediaplayer","wmp","video player"],["control","setting","settings","control","love to change things"],["Anaconda Navigator", "anaconda","Anaconda-Navigator","conda","Navigator"],["MsEdge", "Microsoft Edge","edge","edge browser","micrisoft browser"],["chrome","Google chrome","browser","net surfing in google "],["arcroRd32","acrobat","adobe acrobat"],["creative cloud","creative cloud","adobe cloud",],["illustrartor","Adobe illustrartor","illustrator","illustator","design","designing"," adobe logo maker"],["photoshop","photo shop","Photoeditor","editing"],["Excel","Microsoft Excel","excel","microsoft excel","excel data entry",],["chrome","Google chrome","net surfing in google"],["onenote","Microsoft OneNote","office","mf office",],["powerpnt","Power Point","powerpoint","power point","Presentation","ppt presentation",],["winword","document","word","writing pad"]]
 
 
-   
+    x=prat.app_list_win
     
     
     def show_apps():
@@ -198,7 +202,7 @@ if platform.system() == "Darwin":
 
 
 #for mac
-    x=prat.apps_list_fin
+    x=prat.apps_list_mac
 
 
 
@@ -206,8 +210,6 @@ if platform.system() == "Darwin":
     def open_app():
         os.system('open -a "'+app_name+'".app')
 
-        
-        
     def file_creater():
         os.system("touch "+name+ext)
         print("\n "+line+" \n")
@@ -313,26 +315,28 @@ if platform.system() == "Darwin":
 else:
     print("THIS PROGRAM IS NOT MADE FOR YOUR OPERATING SYSTEM")
 
-voice_control=1
+voice_control=0
 pyttsx3.speak("How Can I help You with .")
 show_apps()
 
+    
+    
 
 
 
-
-
-while True:       
-                             # Start from here
+while True:                                                                               # Start from here
+    
+    
+    to_control_switch=1
     to_control_app_opening=1
     imp.reload(prat)
     to_control_understanding=1
-    
-    
+    if platform.system()=="Darwin":
+        x = prat.apps_list_mac
+    elif platform.system()=="Windows":
+        x= prat.apps_list_win
     file_types=prat.file_list_fin 
-    x = prat.apps_list_fin  
-    
-    
+      
     
     app_list_n=[]
     print("\n"+line+" \n")
@@ -359,7 +363,6 @@ while True:
             print(requirements)
             print("\n Speech done.....")
             print(line+"\n \n")
-    
     else:
         requirements = input("enter your choice:- ")
     req_2=requirements
@@ -379,15 +382,30 @@ while True:
     row = 0        #row
 
 
-    
-    
     sentece_postm = requirements.split()
     
-    if voice_control==1:
+
+
+
+
+
+   
+           # IN SEARCH OF NEGATIVE COMMENT
+    for h in negative_comment:
+        if h in requirements:
+            to_control_switch=0
+                
+
+
+
+
+
+
+    if voice_control==1 and to_control_switch==0:
         for h in voice_off:
             if h in requirements:
-                for k in sentece_postm:
-                    if k in negative_comment:
+                for k in negative_comment:
+                    if k in requirements:
                         voice_control=0
                         to_control=0
                         to_control_b=0
@@ -401,14 +419,12 @@ while True:
             else:
                 pass
 
-            
-            
-    elif voice_control==0:
+    elif voice_control==0 and to_control_switch==1:
 
         for h in voice_off:
             if h in requirements:
-                for k in sentece_postm:
-                    if k in positive_comment:
+                for k in positive_comment:
+                    if k in requirements:
                         voice_control=1
                         to_control=0
                         to_control_b=0
@@ -425,11 +441,11 @@ while True:
     
     
     
-    if speak_mode==1:
+    if speak_mode==1 and to_control_switch==0:
         for h in speak_turn_off:
             if h in requirements:
-                for k in sentece_postm:
-                    if k in negative_comment:
+                for k in negative_comment:
+                    if k in requirements:
                         speak_mode=0
                         to_control=0
                         to_control_b=0
@@ -440,16 +456,11 @@ while True:
             else:
                 pass
 
-            
-            
-            
-            
-    if speak_mode==0:
-
+    if speak_mode==0 and to_control_switch==1:
         for h in speak_turn_off:
             if h in requirements:
-                for k in sentece_postm:
-                    if k in positive_comment:
+                for k in positive_comment:
+                    if k in requirements:
                         speak_mode=1
                         to_control_b=0
                         to_control=0
@@ -458,37 +469,31 @@ while True:
                         break
             else:
                 pass
-
-
-
-
-
-
-
-
-
+    
     if to_control==1:
-           # IN SEARCH OF NEGATIVE COMMENT
-        for h in sentece_postm:
-            if (h in negative_comment) and h not in speak_turn_off :
-                print(negative_comment_speach)
-                to_control=0
-                if speak_mode==1:
-                    
-                    pyttsx3.speak(negative_comment_speach)
+               # IN SEARCH OF NEGATIVE COMMENT
+            for h in sentece_postm:
+                if (h in negative_comment) and h not in speak_turn_off :
+                    print(negative_comment_speach)
+                    to_control=0
+                    if speak_mode==1:
+                        
+                        pyttsx3.speak(negative_comment_speach)
+    
+                    break
+                if (h in negative_comment) and (h in speak_turn_off):
+                    break
+        
 
-                break
-            if (h in negative_comment) and (h in speak_turn_off):
-                break
 
-                
-                
-                
-                
-                
-                
-                
+
+
+
+
+
 #ADD REMOVE APPS
+
+
 
     if ("remove" in requirements or "delete" in requirements) and ("app" in requirements or "apps" in requirements) and to_control==1:
         to_control_app_opening=0
@@ -501,15 +506,10 @@ while True:
                 rm_app=int(input("Enter number :- "))
             except ValueError:
                 pass
-            
-            
-            
             if rm_app==0:
                 print("Exited!!")
                 if speak_mode==1:
                     pyttsx3.speak("Exited")
-            
-            
             
             if rm_app in range(1,t):
                 with open("prat.py","a+") as file_O:
@@ -524,9 +524,6 @@ while True:
                     file_O.write("apps_list_fin.remove(apps_list_fin["+rm+"])")
                     imp.reload(prat)
                     break
-            
-            
-            
             else:
                 print("\n Wrong Input!!")
                 print(line)
@@ -537,8 +534,7 @@ while True:
                 
                 
 
-                
-    if ("add" in requirements) and ("app" in requirements or "apps" in requirements) and to_control==1:
+    if ("add" in requirements) and ("app" in requirements or "apps" in requirements) and (to_control==1) and (platform.system()=="Darwin" or platform.system()=="Windows"):
         to_control_app_opening=0
         while True:
             n_app=input("Display Name :-  ")
@@ -594,12 +590,21 @@ while True:
                         
                         
                         app_list="'"+"','".join(app_list_n)+"'"       
-                                                                       #bvcahgddjvkcvhdvsachkjshavdjc 
-                        file_O.write("\n")
-                        file_O.write("x_0 = ["+app_list+"]")
-                        file_O.write("\n")
-                        file_O.write("apps_list_fin.append(x_0)")
-                        file_O.write("\n")
+                       
+                        if platform.system() == "Darwin":
+                            os_1="apps_list_mac"
+                            var_1="x_mac"
+                        elif platform.system()=="Winsows":
+                            os_1="apps_list_win"
+                            var_1="x_win"
+                        def app_loader(os,var): 
+                            file_O.write("\n")
+                            file_O.write(var+" = ["+app_list+"]")
+                            file_O.write("\n")
+                            file_O.write(os+".append("+var+")")
+                            file_O.write("\n")
+                        
+                        app_loader(os=os_1,var=var_1)
                         imp.reload(prat)
                         imp.reload(prat)
                         to_control_understanding=0
@@ -609,10 +614,10 @@ while True:
                         if speak_mode==1:
                             pyttsx3.speak(n_app+" Added successfully")
                         break
+                            
+                            
+                            
                         
-                        
-                        
-#----------  
 
 
 
@@ -620,6 +625,10 @@ while True:
 
 
 
+
+#------
+    
+        
             # file creater
 
     if "show" in requirements and "app" in requirements and to_control==1:
@@ -671,6 +680,7 @@ while True:
                   uni_f_op()
 
 
+
                   # DELETE FILE
               elif   "delete" in inp_1[0]:
 
@@ -693,8 +703,6 @@ while True:
               elif "show" in inp_1 and "file" in inp_1:
                    os.system(ls)
 
-                    
-                    
                 #create files
               elif "create" in inp_1:
                     
@@ -765,15 +773,18 @@ while True:
                                     print("\n Wrong Input!!")
                                     print(line)
                                     if speak_mode==1:
-                                        pyttsx3.speak("Wrong Input")                    
+                                        pyttsx3.speak("Wrong Input")
+                        
+                        
                        
-                      
                         
+                       
                         
+                       
                         
+                       
                         
-                        
-                        
+                       
                         
                         #File ADDER
                         
@@ -842,12 +853,18 @@ while True:
                                             print(line)
                                             if speak_mode==1:
                                                 pyttsx3.speak(n_file+" Added successfully")
-                                            break                  
-              
-            
-            
-            
-            
+                                            break
+                            
+                        
+                                    
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         #For CREATING files
                         
@@ -872,10 +889,7 @@ while True:
                                     file_opener()
                                     
                                     
-           
-        
-        
-        
+                                    
                         
                         else :
                            
@@ -956,7 +970,7 @@ while True:
 
         if to_control==1 and to_control_understanding==1:
                 
-                
+               
                 if req_2.isnumeric():
                     req_2=int(req_2)
                    
@@ -971,10 +985,6 @@ while True:
                                 row=r
     
                                 break
-    
-    
-    
-    
     
                             else:
                                 pass
