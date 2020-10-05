@@ -87,18 +87,18 @@ pyttsx3.speak("Hello "+name_user +"! I am Darwin your virtual assistant! What ca
 if platform.system() == "Windows":
     print("you are operating this program on windows.....")
     pyttsx3.speak("you are operating this program on windows.....")
-    
+    '''
     pyttsx3.speak("This program is mainly made for Mac (OS)! but optimized also for windows! There are some chances that some function may not work in windows")
-
+'''
     
 
 
-    x=prat.app_list_win
+    x=prat.apps_list_win
     
     
     def show_apps():
         print("\n \n")
-        print("THE APPS THAT I CAN OPEN FOR YOU IF IT EXIST: \n")
+        print("THE APPS THAT I CAN OPEN FOR YOU IF IT EXIST(to add more apps: type 'add apps'): \n")
         for i in range(1,len(x)):
             q=str(i)
             print(q+") "+x[i][1])
