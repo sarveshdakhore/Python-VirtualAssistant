@@ -80,7 +80,7 @@ if platform.system() == "Windows":
     
     pyttsx3.speak("This program is mainly made for Mac (OS)! but optimized also for windows! There are some chances that some function may not work in windows")
 
-    x = [[""],["wmplayer","Windows Media Player","windows media player","windowsmediaplayer","wmp","video player"],["control","setting","settings","control","love to change things"],["Anaconda Navigator", "anaconda","Anaconda-Navigator","conda","Navigator"],["MsEdge", "Microsoft Edge","edge","edge browser","micrisoft browser"],["chrome","Google chrome","browser","net surfing in google "],["arcroRd32","acrobat","adobe acrobat"],["creative cloud","creative cloud","adobe cloud",],["illustrartor","Adobe illustrartor","illustrator","illustator","design","designing"," adobe logo maker"],["photoshop","photo shop","Photoeditor","editing"],["Excel","Microsoft Excel","excel","microsoft excel","excel data entry",],["chrome","Google chrome","net surfing in google"],["onenote","Microsoft OneNote","office","mf office",],["powerpnt","Power Point","powerpoint","power point","Presentation","ppt presentation",],["winword","document","word","writing pad"]]
+    
 
 
     x=prat.app_list_win
