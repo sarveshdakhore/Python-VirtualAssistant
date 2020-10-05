@@ -1,6 +1,7 @@
 import os
 import platform
 import prat
+os.system("conda install pyaudio")
 try:
     import imp
 except ModuleNotFoundError:
@@ -11,7 +12,7 @@ except ModuleNotFoundError:
 try:
     import speech_recognition as sr
 except ModuleNotFoundError:
-    os.system("conda install speechrecognition")
+    os.system("pip install speechrecognition")
     import speech_recognition as sr
 
 try:
