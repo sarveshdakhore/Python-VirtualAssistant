@@ -1,13 +1,23 @@
 import os
 import platform
 import prat
-import imp
-import speech_recognition as sr
+try:
+    import imp
+except ModuleNotFoundError:
+    os.system("conda install imp")
+    import imp
+
+    
+try:
+    import speech_recognition as sr
+except ModuleNotFoundError:
+    os.system("conda install speechrecognition")
+    import speech_recognition as sr
 
 try:
     import time
 except ModuleNotFoundError:
-    os.system("pip install time")
+    os.system("conda install time")
     import time
 
 try:
