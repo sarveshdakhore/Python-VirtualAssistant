@@ -315,7 +315,7 @@ if platform.system() == "Darwin":
 else:
     print("THIS PROGRAM IS NOT MADE FOR YOUR OPERATING SYSTEM")
 
-voice_control=0
+voice_control=1
 pyttsx3.speak("How Can I help You with .")
 show_apps()
 
