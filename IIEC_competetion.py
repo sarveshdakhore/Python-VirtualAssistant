@@ -21,14 +21,6 @@ name_user="Prathmesh"
 line = " ___________________________________________________________________ "
 
 
-
-    
-
-
-
-
-
-
 '''
 print("\n \n \n "+line+" \n \n \n")
 print("WHAT DOES THIS PROGRAM DO: \n \n 1)  YOU CAN OPEN APPLICATIONS : TO add more application just make [] seperated via couma and first \n add orignal app name in string and than the what would you will type to open the app in \n another string all strings should seperated by couma. \n")
