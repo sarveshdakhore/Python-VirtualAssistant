@@ -585,12 +585,12 @@ while True:                                                                     
                 
                 if pop_1!=0:
                     
-                    print("\t \t app is opened for confirmation...... \n"+line+"\n")
+                    print("\t \t app is opened for confirmation...... \n"+line+"Confirmation done..."+"\n")
                     if  platform.system()=="Darwin":
                         os.system("open -a Terminal.app")
                     
-                    elif platform.system()=="Windows":
-                        os.system("start cmd")
+                  
+                        
                     
                     nic_name_app=[]
                     
