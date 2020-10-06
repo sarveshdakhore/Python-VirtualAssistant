@@ -16,7 +16,7 @@ except ModuleNotFoundError:
     os.system("pip install pyttsx3")
     import pyttsx3
 
-name_user="Prathmesh"
+name_user=""
 
 line = " ___________________________________________________________________ "
 
@@ -39,7 +39,7 @@ print("\n \n"+line+" \n")
 
 '''
 
-speak_mode = 0
+speak_mode = 1
 
 #about program
 
