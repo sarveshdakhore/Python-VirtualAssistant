@@ -423,6 +423,7 @@ while True:                                                                     
                         to_control=0
                         to_control_b=0
                         print("\n - Voice control turned off successfully")
+                       
                         
                         pyttsx3.speak("Voice control turned off successfully")
                        
@@ -600,7 +601,7 @@ while True:                                                                     
                 
                 if pop_1!=0:
                     
-                    print("\t \t app is opened for confirmation...... \n"+line+"Confirmation done..."+"\n")
+                    print("\t \t app is opened for confirmation...... \n"+"Confirmation done..."+line+"\n")
                     if  platform.system()=="Darwin":
                         os.system("open -a Terminal.app")
                     
