@@ -55,7 +55,7 @@ print("\n \n"+line+" \n")
 
 '''
 
-speak_mode = 1
+speak_mode = 0
 
 #about program
 
@@ -65,7 +65,7 @@ negative_comment = ["dont",'not to','not',"don't",'never do this', 'never do' , 
 positive_comment= ["do","now","start","turn on","turnon"]
 
 voice_off=["voice","voice control"]
-speak_turn_off= "speak"
+speak_turn_off= "speak speaking"
 speak_turn_off= speak_turn_off.split()
 
 def nif():
@@ -325,7 +325,7 @@ if platform.system() == "Darwin":
 
 
 
-voice_control=0
+voice_control=1
 pyttsx3.speak("How Can I help You with .")
 show_apps()
 
