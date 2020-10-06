@@ -21,6 +21,7 @@ name_user="Prathmesh"
 line = " ___________________________________________________________________ "
 
 
+
 '''
 print("\n \n \n "+line+" \n \n \n")
 print("WHAT DOES THIS PROGRAM DO: \n \n 1)  YOU CAN OPEN APPLICATIONS : TO add more application just make [] seperated via couma and first \n add orignal app name in string and than the what would you will type to open the app in \n another string all strings should seperated by couma. \n")
@@ -68,19 +69,19 @@ pyttsx3.speak("Hello "+name_user +"! I am Darwin your virtual assistant! What ca
 '''
 if platform.system() == "Windows":
     print("you are operating this program on windows.....")
+    '''
     pyttsx3.speak("you are operating this program on windows.....")
     
     pyttsx3.speak("This program is mainly made for Mac (OS)! but optimized also for windows! There are some chances that some function may not work in windows")
+'''
+    
 
-    x = [[""],["wmplayer","Windows Media Player","windows media player","windowsmediaplayer","wmp","video player"],["control","setting","settings","control","love to change things"],["Anaconda Navigator", "anaconda","Anaconda-Navigator","conda","Navigator"],["MsEdge", "Microsoft Edge","edge","edge browser","micrisoft browser"],["chrome","Google chrome","browser","net surfing in google "],["arcroRd32","acrobat","adobe acrobat"],["creative cloud","creative cloud","adobe cloud",],["illustrartor","Adobe illustrartor","illustrator","illustator","design","designing"," adobe logo maker"],["photoshop","photo shop","Photoeditor","editing"],["Excel","Microsoft Excel","excel","microsoft excel","excel data entry",],["chrome","Google chrome","net surfing in google"],["onenote","Microsoft OneNote","office","mf office",],["powerpnt","Power Point","powerpoint","power point","Presentation","ppt presentation",],["winword","document","word","writing pad"]]
-
-
-    x=prat.app_list_win
+    x=prat.apps_list_win
     
     
     def show_apps():
         print("\n \n")
-        print("THE APPS THAT I CAN OPEN FOR YOU IF IT EXIST: \n")
+        print("THE APPS THAT I CAN OPEN FOR YOU : \n")
         for i in range(1,len(x)):
             q=str(i)
             print(q+") "+x[i][1])
@@ -174,14 +175,7 @@ if platform.system() == "Windows":
             nif()
 
 
-lop=""
 
-if platform.system() == "Windows":
-     lop= "os.system('start ' +app_name)"
-if platform.system()=="Darwin":
-     lop= "os.system('open -a "'+app_name+'".app')"
-        
-    
 
 
 #qwertyuiopasdfghjklzxcvbnm
@@ -312,7 +306,7 @@ if platform.system() == "Darwin":
 else:
     print("THIS PROGRAM IS NOT MADE FOR YOUR OPERATING SYSTEM")
 
-voice_control=1
+voice_control=0
 pyttsx3.speak("How Can I help You with .")
 show_apps()
 
@@ -579,6 +573,7 @@ while True:                                                                     
                             print("App does not exist.")
                             print(line+"\n")
                             pop_1=0
+                            
                 elif platform.system()=="Windows":
                     err_app = 1
                     os_2="apps_list_win"
@@ -586,11 +581,16 @@ while True:                                                                     
                             print("App does not exist.")
                             print(line+"\n")
                             pop_1=0
+                print("\n Trying to opening app .....")
                 
                 if pop_1!=0:
                     
-                    print("\n \t \t app is opened for confirmation... \n")
+                    print("\t \t app is opened for confirmation...... \n"+line+"\n")
+                    if  platform.system()=="Darwin":
+                        os.system("open -a Terminal.app")
                     
+                    elif platform.system()=="Windows":
+                        os.system("start cmd")
                     
                     nic_name_app=[]
                     
@@ -643,7 +643,6 @@ while True:                                                                     
                         to_control_understanding=0
                         print("\n"+line+"\n")
                         print(n_app+" Added successfully !!")
-                        
                         if speak_mode==1:
                             pyttsx3.speak(n_app+" Added successfully")
                         break
@@ -651,11 +650,6 @@ while True:                                                                     
                             
                             
                         
-
-
-
-
-
 
 
 
@@ -1074,4 +1068,3 @@ while True:                                                                     
 
 
                 
-
