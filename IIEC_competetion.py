@@ -602,10 +602,10 @@ while True:                                                                     
                             print("App does not exist.")
                             print(line+"\n")
                             pop_1=0
-                print("\n Trying to opening app .....")
+                
                 
                 if pop_1!=0:
-                    
+                    print("\n Trying to opening app .....")
                     wero()
                     print("\t \t app was opened for confirmation...... \n"+"Confirmation done... \n"+line+"\n")
         
