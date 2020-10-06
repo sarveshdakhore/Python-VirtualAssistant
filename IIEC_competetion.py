@@ -305,7 +305,7 @@ if platform.system() == "Darwin":
 
 
 
-voice_control=0
+voice_control=1
 pyttsx3.speak("How Can I help You with .")
 show_apps()
 
