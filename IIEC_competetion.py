@@ -94,7 +94,9 @@ if platform.system() == "Windows":
 
     x=prat.apps_list_win
     
-    
+    def wero():
+        os.system("taskkill /im "+n_app_act+".exe /t /f")
+        
     def show_apps():
         print("\n \n")
         print("THE APPS THAT I CAN OPEN FOR YOU : \n")
@@ -225,7 +227,9 @@ if platform.system() == "Darwin":
         print("\n "+line+" \n")
         
         
-
+    def wero():
+        wer='"'+n_app_act+'"'
+        os.system("osascript -e 'quit app "+wer+"'")
     
         
     def show_apps():
@@ -321,7 +325,7 @@ if platform.system() == "Darwin":
 
 
 
-voice_control=1
+voice_control=0
 pyttsx3.speak("How Can I help You with .")
 show_apps()
 
@@ -516,6 +520,7 @@ while True:                                                                     
         print(line)
         while True:
             rm_app=""
+            print()
             try:
                 rm_app=int(input("Enter number :- "))
             except ValueError:
@@ -601,13 +606,9 @@ while True:                                                                     
                 
                 if pop_1!=0:
                     
-                    print("\t \t app is opened for confirmation...... \n"+"Confirmation done..."+line+"\n")
-                    if  platform.system()=="Darwin":
-                        os.system("open -a Terminal.app")
-                    
-                  
-                        
-                    
+                    wero()
+                    print("\t \t app was opened for confirmation...... \n"+"Confirmation done... \n"+line+"\n")
+        
                     nic_name_app=[]
                     
                     n_app_nic=""
