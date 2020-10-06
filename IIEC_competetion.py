@@ -625,7 +625,7 @@ while True:                                                                     
                         if platform.system() == "Darwin":
                             os_1="apps_list_mac"
                             var_1="x_mac"
-                        elif platform.system()=="Winsows":
+                        elif platform.system()=="Windows":
                             os_1="apps_list_win"
                             var_1="x_win"
                         def app_loader(os,var): 
