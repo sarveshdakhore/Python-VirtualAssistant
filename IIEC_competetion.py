@@ -688,7 +688,7 @@ while True:                                                                     
              
               if platform.system()=="Windows":
                     ls='"dir"'
-                    print("hello")
+                    
               else:
                     ls = "ls"
               print("Files in directory:- \n ------------ \n")
