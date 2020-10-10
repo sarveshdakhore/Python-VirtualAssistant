@@ -1069,7 +1069,7 @@ while True:                                                                     
                                 file_O.write("\n")
                               
                                 file_O.write(os_2+".remove("+os_2+"["+row1+"])")
-                                show_apps()
+                          
                              
                         
                     
