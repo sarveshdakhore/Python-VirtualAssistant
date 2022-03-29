@@ -2,17 +2,12 @@
 
 
 THIS PROGRAM is mainly FOR  'Mac OS'.      🖥 💻 
+But also optimised for Windows.
 
-
- IF YOU ARE OPERATING IN WINDOWS THAN:      
-            MANY OF THE FEATURES WILL NOT GOING TO WORK.   
-
-The Prat.py and IIEC_competetion.py should be in same location 
+The database.py and py-project-cs.py should be in same location 
 
 This is one of the finest program.... and every code is written with a very depth meaning...
-And can do lot more things besides opening apps
-Please read full text written here to get view how rich this program is...
- 
+Program includes NLP
  
  
 you can open any apps you want and you can add your own apps to its very easy... 
@@ -22,12 +17,6 @@ type "add app"
 To remove app:
     type or say "remove app"
    
-
-
-where you will save file there will be directory working means you can do multiples actions on the files present in the directory where your file is saved.
-
-
-first download miniconda(https://docs.conda.io/en/latest/miniconda.html) or anaconda(https://www.anaconda.com/products/individual) and Python(https://www.python.org/downloads/) 
 
 make sure you have installed all modules. cmd lines given bellow of each module to install it
   
@@ -57,10 +46,3 @@ FOR MAC IMPORTANT INSTRUCTION:
      10) Just say or type "exit" to stop running program
 
 
-
-
-IF STILL NOT RUNNING:
-  try to copy code in python orignal idle and than run...
-
-
-python program made special for Mac OS there are lots of apps to open for Mac OS with just simple conversation as we do normally and even create, rename,open,view,delete files. may be some function will not work in windows, but this program is also optimised for Windows ,  because I don't have windows and I didn't tested in windows. but aps will open in windows.  
