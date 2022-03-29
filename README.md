@@ -1,4 +1,4 @@
-# IIEC-Python
+# Virtual Assistant Python
 
 
 THIS PROGRAM is mainly FOR  'Mac OS'.      🖥 💻 
