@@ -3,8 +3,6 @@ print('''
 
 Creater: 
 \t1) Sarvesh Dakhore
-\t2) Devank Yadav
-\t3) Shreyansh Pareek
 
 =======================================
 
